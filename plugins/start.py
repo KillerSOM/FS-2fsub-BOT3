@@ -85,6 +85,16 @@ async def start_command(client: Client, message: Message):
                 pass
         return
     else:
+        loading = await message.reply_photo(photo= ONGOING, caption= "<b>Loading</b> ▱ ▱ ▱ ▱")
+        await asyncio.sleep(1)
+        loading2 = await loading.edit("<b>Loading</b> ▰ ▱ ▱ ▱")
+        await asyncio.sleep(2)
+        loading3 = await loading2.edit("<b>Loading</b> ▰ ▰ ▱ ▱")
+        await asyncio.sleep(2)
+        loading4 = await loading3.edit("<b>Loading</b> ▰ ▰ ▰ ▱")
+        await asyncio.sleep(2)
+        loading5 = await loading4.edit("<b>Loading</b> ▰ ▰ ▰ ▰")
+        await asyncio.sleep(1.5)
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -92,9 +102,8 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('Oɴɢᴏɪɴɢ Aɴɪᴍᴇ', url = 'https://t.me/Infinity_Ongoing')
                 ]])
          
-        await message.reply_photo(
-            photo= ONGOING,
-            caption= START_MSG.format(
+        await loading5.edit(
+            text = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
