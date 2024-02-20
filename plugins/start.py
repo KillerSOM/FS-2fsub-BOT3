@@ -88,13 +88,13 @@ async def start_command(client: Client, message: Message):
         loading = await message.reply_photo(photo= ONGOING, caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
         await asyncio.sleep(1)
         loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱ ▱")
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▱")
-        await asyncio.sleep(2)
+        await asyncio.sleep(1)
         loading5 = await loading4.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▰")
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(1)
         reply_markup = InlineKeyboardMarkup(
             [
                 [
