@@ -85,15 +85,15 @@ async def start_command(client: Client, message: Message):
                 pass
         return
     else:
-        loading = await message.reply_photo(photo= ONGOING, caption= "<b>Loading</b> ▱ ▱ ▱ ▱")
+        loading = await message.reply_photo(photo= ONGOING, caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
         await asyncio.sleep(1)
-        loading2 = await loading.edit("<b>Loading</b> ▰ ▱ ▱ ▱")
+        loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
         await asyncio.sleep(2)
-        loading3 = await loading2.edit("<b>Loading</b> ▰ ▰ ▱ ▱")
+        loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱ ▱")
         await asyncio.sleep(2)
-        loading4 = await loading3.edit("<b>Loading</b> ▰ ▰ ▰ ▱")
+        loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▱")
         await asyncio.sleep(2)
-        loading5 = await loading4.edit("<b>Loading</b> ▰ ▰ ▰ ▰")
+        loading5 = await loading4.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▰")
         await asyncio.sleep(1.5)
         reply_markup = InlineKeyboardMarkup(
             [
