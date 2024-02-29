@@ -85,7 +85,7 @@ async def start_command(client: Client, message: Message):
                 pass
         return
     else:
-        loading = await message.reply_photo(photo= START_PIC, caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
+        loading = await message.reply_photo(photo= ONGOING, caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
         await asyncio.sleep(0.5)
         loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
         await asyncio.sleep(0.5)
