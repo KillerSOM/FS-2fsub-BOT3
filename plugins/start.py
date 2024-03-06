@@ -185,7 +185,7 @@ async def help(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Join Support Group', url='https://t.me/chatbox480')
+                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/chatbox480')
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
