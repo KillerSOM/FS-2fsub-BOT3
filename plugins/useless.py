@@ -19,7 +19,7 @@ async def bcmd(bot: Bot, message: Message):
     reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⛔️ Close ⛔️", callback_data = "close")
+                    InlineKeyboardButton("⛔️  CLOSE  ⛔️", callback_data = "close")
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
