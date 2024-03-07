@@ -5,7 +5,7 @@
 
 import os
 import asyncio
-from pyrogram import Client, filters, __version__
+from pyrogram import Client, filters, enums
 from pyrogram.enums import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
@@ -202,14 +202,14 @@ async def help(client: Client, message: Message):
                 id = message.from_user.id
             ),
             reply_markup = reply_markup,
-            parse_mode= ParseMode.HTML
+            parse_mode= enums.ParseMode.HTML
             #quote = True
         )
         return
 
 @Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
-  await message.reply("<blockquote>Testing</blockquote>", ParseMode.HTML)
+  await message.reply("<blockquote>Testing</blockquote>", enums.ParseMode.HTML)
 
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
