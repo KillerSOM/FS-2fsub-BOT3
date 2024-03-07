@@ -39,7 +39,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/d48e6d30e443dcae118b8.jpg")
 
 #start message
-START_MSG = os.environ.get("START_MSG", "<b>Hᴇʟʟᴏ, {first} ~\n\n  I am a Telegram Bot that store posts or files for <a href='https://t.me/Animemoviesr'>infinity void ∞</a> , And can be accessed via a Special Link.\n\n👨‍💻 Developed by @Shidoteshika1</b>")
+START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʟʟᴏ, {first} ~\n\n  I am a Telegram Bot that store posts or files for <a href='https://t.me/Animemoviesr'>infinity void ∞</a> , And can be accessed via a Special Link.\n\n🤖 Developed by @Shidoteshika1</b>")
 
 try:
     ADMINS=[]
@@ -63,7 +63,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<b>I am only file store bot\n\nFor More Info Click: /start</b>\n"
 
-HELP_TEXT = "<b>Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n/help -</b> Oɴʟʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴡɪᴛʜᴏᴜᴛ jᴏɪɴɪɴɢ ᴀɴʏ ᴄʜᴀɴɴᴇʟ."
+HELP_TEXT = "<b>🍁 Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n/help -</b> Oɴʟʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴡɪᴛʜᴏᴜᴛ jᴏɪɴɪɴɢ ᴀɴʏ ᴄʜᴀɴɴᴇʟ."
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1536699044)
