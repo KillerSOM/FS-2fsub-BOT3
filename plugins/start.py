@@ -18,6 +18,7 @@ from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
+GIF = "https://te.legra.ph/file/64672a2d5fade2f6eb886.mp4"
 
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
@@ -95,7 +96,7 @@ async def start_command(client: Client, message: Message):
                 ]])
          
         await message.reply_video(
-            video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4",
+            video= GIF,
             caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
