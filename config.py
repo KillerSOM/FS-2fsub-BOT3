@@ -6,7 +6,6 @@
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-from telegram.constants import ParseMode
 
 
 #Bot token @Botfather
@@ -65,7 +64,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<b>I am only file store bot\n\nFor More Info Click: /start</b>\n"
 
-HELP_TEXT = ("<b>🍁 Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n/help -</b> Oɴʟʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴡɪᴛʜᴏᴜᴛ jᴏɪɴɪɴɢ ᴀɴʏ ᴄʜᴀɴɴᴇʟ.\n\n<blockquote>Block quotation started\nBlock quotation continued\nThe last line of the block quotation</blockquote>",ParseMode.HTML)
+HELP_TEXT = "<b>🍁 Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n/help -</b> Oɴʟʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴡɪᴛʜᴏᴜᴛ jᴏɪɴɪɴɢ ᴀɴʏ ᴄʜᴀɴɴᴇʟ.\n\n<blockquote>Block quotation started\nBlock quotation continued\nThe last line of the block quotation</blockquote>"
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1536699044)
