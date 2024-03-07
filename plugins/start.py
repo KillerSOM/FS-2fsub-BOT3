@@ -87,7 +87,7 @@ async def start_command(client: Client, message: Message):
                 pass
         return
     else:
-        loading = await message.reply_sendVideo(video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4", caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
+        loading = await message.reply_video(video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4", caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
         await asyncio.sleep(0.5)
         loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
         await asyncio.sleep(0.5)
