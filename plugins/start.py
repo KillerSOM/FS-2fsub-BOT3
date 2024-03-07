@@ -209,7 +209,7 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
-  await message.reply("<blockquote>Testing</blockquote>", enums.ParseMode.HTML)
+  await message.reply("<blockquote>Testing</blockquote>", ParseMode.HTML)
 
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
