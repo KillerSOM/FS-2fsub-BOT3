@@ -199,6 +199,7 @@ async def help(client: Client, message: Message):
                 mention = message.from_user.mention,
                 id = message.from_user.id
             ),
+            ParseMode.HTML,
             reply_markup = reply_markup,
             quote = True
         )
