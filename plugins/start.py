@@ -87,16 +87,6 @@ async def start_command(client: Client, message: Message):
                 pass
         return
     else:
-        loading = await message.reply_video(video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4", caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
-        await asyncio.sleep(0.5)
-        loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
-        await asyncio.sleep(0.5)
-        loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱ ▱")
-        await asyncio.sleep(0.5)
-        loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▱")
-        await asyncio.sleep(0.5)
-        loading5 = await loading4.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▰")
-        await asyncio.sleep(0.5)
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -104,8 +94,9 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('Oɴɢᴏɪɴɢ Aɴɪᴍᴇ', url = 'https://t.me/Infinity_Ongoing')
                 ]])
          
-        await loading5.edit(
-            text = START_MSG.format(
+        await message.reply_video(
+            video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4",
+            caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -148,6 +139,17 @@ async def test(client: Client, message: Message):
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
                      #InlineKeyboardButton("❕", callback_data = "help")
+
+"""loading = await message.reply_video(video= "https://te.legra.ph/file/3014bff8535b3c2d216ba.mp4", caption= "<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱ ▱")
+        await asyncio.sleep(0.5)
+        loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱ ▱")
+        await asyncio.sleep(0.5)
+        loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱ ▱")
+        await asyncio.sleep(0.5)
+        loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▱")
+        await asyncio.sleep(0.5)
+        loading5 = await loading4.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰ ▰")
+        await asyncio.sleep(0.5)"""
             
    
 #=====================================================================================##
