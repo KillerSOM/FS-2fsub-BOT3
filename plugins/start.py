@@ -18,7 +18,7 @@ from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
-GIF = "https://te.legra.ph/file/64672a2d5fade2f6eb886.mp4"
+GIF = "https://te.legra.ph/file/f3e706834705fa00cd5e2.mp4"
 
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
