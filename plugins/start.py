@@ -201,12 +201,14 @@ async def help(client: Client, message: Message):
                 mention = message.from_user.mention,
                 id = message.from_user.id
             ),
-            ParseMode.HTML,
             reply_markup = reply_markup,
             quote = True
         )
         return
 
+@Bot.on_message(filters.command('test') & filters.private)
+async def help(client: Client, message: Message):
+  await message.reply("TESTING MESSAGE: \n<blockquote>Testing</blockquote>", ParseMode.HTML)
 
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
