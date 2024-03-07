@@ -19,14 +19,12 @@ async def bcmd(bot: Bot, message: Message):
     reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⛔️ Close", callback_data = "close")
+                    InlineKeyboardButton("⛔️ Close ⛔️", callback_data = "close")
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
-    tmp_msg = await message.reply(text="<b>❏ Cᴏᴍᴍᴀɴᴅs ғᴏʀ ʙᴏᴛ Aᴅᴍɪɴs\n\n‣ /start :</b> start the bot or get posts\n<b>‣ /batch :</b> create group messages\n<b>‣ /genlink :</b> create link for one post\n<b>‣ /users :</b> view bot statistics\n<b>‣ /broadcast :</b> broadcast Message\n<b>‣ /stats :</b> checking your bot uptime\n", reply_markup = reply_markup)
-    await asyncio.sleep(30)
-    await tmp_msg.delete()
-    await message.delete()
+    await message.reply(text="<b>❏ Cᴏᴍᴍᴀɴᴅs ғᴏʀ ʙᴏᴛ Aᴅᴍɪɴs\n\n‣ /start :</b> start the bot or get posts\n<b>‣ /batch :</b> create group messages\n<b>‣ /genlink :</b> create link for one post\n<b>‣ /users :</b> view bot statistics\n<b>‣ /broadcast :</b> broadcast Message\n<b>‣ /stats :</b> checking your bot uptime\n", reply_markup = reply_markup, quote= True)
+    
         
 
 @Bot.on_message(filters.private)
