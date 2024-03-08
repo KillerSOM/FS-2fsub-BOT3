@@ -75,7 +75,7 @@ class Bot(Client):
 
         self.set_parse_mode(ParseMode.HTML)
         self.LOGGER(__name__).info(f"Bot Running..!")
-        self.LOGGER(__name__).info(f"""🇩 🇴 🇳 🇪  ✅""")
+        self.LOGGER(__name__).info(f"🇩 🇴 🇳 🇪  ✅")
         self.username = usr_bot_me.username
         #web-response
         app = web.AppRunner(await web_server())
