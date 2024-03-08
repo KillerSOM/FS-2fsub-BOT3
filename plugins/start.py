@@ -133,13 +133,13 @@ async def help(client: Client, message: Message):
         )
         return
 
-@Bot.on_message(filters.command('test') & filters.private)
+"""@Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
-  await message.reply("<blockquote>Testing</blockquote>\n > Quote Test")
+  await message.reply("<blockquote>Testing</blockquote>\n > Quote Test")"""
 
 app = Client("my_session")
 
-@app.on_message(filters.private)
+@app.on_message(filters.command('test') & filters.private)
 async def my_handler(client, message):
     # Your start message with a block quote
     start_message = """
