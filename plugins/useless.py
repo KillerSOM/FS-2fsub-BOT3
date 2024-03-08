@@ -27,10 +27,10 @@ async def bcmd(bot: Bot, message: Message):
     
         
 
-@Bot.on_message(filters.private)
+"""@Bot.on_message(filters.private)
 async def useless(_,message: Message):
     if USER_REPLY_TEXT:
-        await message.reply(USER_REPLY_TEXT)
+        await message.reply(USER_REPLY_TEXT)"""
 
 
 app = Client("my_session")
