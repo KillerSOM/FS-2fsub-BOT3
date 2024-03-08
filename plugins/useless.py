@@ -36,7 +36,7 @@ async def useless(_,message: Message):
 app = Client("my_session")
 
 @Bot.on_message(filters.command('test') & filters.private)
-async def test(client: Client, message: Message):
+async def test(bot: Bot, message: Message):
     # Your start message with a block quote
     start_message = "> Hello! Welcome to my bot.\n> This is a block quote example.\n> Feel free to explore the features!"
     await message.reply(start_message, parse_mode="markdown")
