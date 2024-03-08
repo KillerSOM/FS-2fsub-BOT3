@@ -1,7 +1,7 @@
 from bot import Bot
 import asyncio
 from pyrogram.types import Message
-from pyrogram import filters
+from pyrogram import Client, filters
 from config import ADMINS, BOT_STATS_TEXT, USER_REPLY_TEXT
 from datetime import datetime
 from helper_func import get_readable_time
@@ -31,3 +31,16 @@ async def bcmd(bot: Bot, message: Message):
 async def useless(_,message: Message):
     if USER_REPLY_TEXT:
         await message.reply(USER_REPLY_TEXT)
+
+
+app = Client("my_session")
+
+@Bot.on_message(filters.command('test') & filters.private)
+async def test(client: Client, message: Message):
+    # Your start message with a block quote
+    start_message = """
+    > Hello! Welcome to my bot.
+    > This is a block quote example.
+    > Feel free to explore the features!
+    """
+    await message.reply(start_message, parse_mode="markdown")
