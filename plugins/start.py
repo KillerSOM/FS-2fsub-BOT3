@@ -140,7 +140,7 @@ async def test(client: Client, message: Message):
 app = Client("my_session")
 
 @app.on_message(filters.command('test') & filters.private)
-async def test(client, message):
+async def test(client: Client, message: Message):
     # Your start message with a block quote
     start_message = """
     > Hello! Welcome to my bot.
