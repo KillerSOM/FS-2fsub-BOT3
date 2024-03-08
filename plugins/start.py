@@ -150,7 +150,7 @@ async def test(client: Client, message: Message):
 
     await message.reply(start_message, parse_mode="markdown")
 
-app.run()
+
     
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
