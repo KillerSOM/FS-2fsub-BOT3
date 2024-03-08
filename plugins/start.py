@@ -137,7 +137,7 @@ async def help(client: Client, message: Message):
 async def test(client: Client, message: Message):
   await message.reply("<blockquote>Testing</blockquote>\n > Quote Test")"""
 
-app = Client("my_session")
+"""app = Client("my_session")
 
 @Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
@@ -147,7 +147,7 @@ async def test(client: Client, message: Message):
     > This is a block quote example.
     > Feel free to explore the features!
     """
-    await message.reply(start_message, parse_mode="markdown")
+    await message.reply(start_message, parse_mode="markdown")"""
 
 
     
