@@ -135,7 +135,7 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
-  await message.reply(text = "<blockquote>Testing</blockquote>\n > Quote Test",parse_mode= MarkdownV2)
+  await message.reply(text = "<blockquote>Testing</blockquote>\n > Quote Test",parse_mode= 'MarkdownV2')
 
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
