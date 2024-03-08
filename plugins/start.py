@@ -139,7 +139,7 @@ async def test(client: Client, message: Message):
 
 app = Client("my_session")
 
-@app.on_message(filters.command('test') & filters.private)
+@Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
     # Your start message with a block quote
     start_message = """
@@ -147,7 +147,6 @@ async def test(client: Client, message: Message):
     > This is a block quote example.
     > Feel free to explore the features!
     """
-
     await message.reply(start_message, parse_mode="markdown")
 
 
