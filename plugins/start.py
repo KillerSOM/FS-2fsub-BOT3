@@ -135,8 +135,21 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('test') & filters.private)
 async def test(client: Client, message: Message):
-  await message.reply(text = "<blockquote>Testing</blockquote>\n > Quote Test",parse_mode= 'markdown')
+  await message.reply("<blockquote>Testing</blockquote>\n > Quote Test")
 
+app = Client("my_session")
+
+@app.on_message(filters.private)
+async def my_handler(client, message):
+    # Your start message with a block quote
+    start_message = """
+    > Hello! Welcome to my bot.
+    > This is a block quote example.
+    > Feel free to explore the features!
+    """
+
+    await message.reply(start_message, parse_mode="markdown")
+    
                      #InlineKeyboardButton("🤖", callback_data = "about"),
                      #InlineKeyboardButton("⛔️", callback_data = "close"),
                      #InlineKeyboardButton("❕", callback_data = "help")
