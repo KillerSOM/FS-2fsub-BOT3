@@ -228,11 +228,11 @@ async def not_joined(client: Client, message: Message):
     )
     
     
-@Bot.on_message(filters.command('users') & filters.private & filters.user(ADMINS))
+"""@Bot.on_message(filters.command('users') & filters.private & filters.user(ADMINS))
 async def get_users(client: Bot, message: Message):
     msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
     users = await full_userbase()
-    await msg.edit(f"{len(users)} users are using this bot")
+    await msg.edit(f"{len(users)} users are using this bot")"""
 
 @Bot.on_message(filters.command('info') & filters.private & filters.user(ADMINS))
 async def info(client: Bot, message: Message):
