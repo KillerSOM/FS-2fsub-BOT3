@@ -19,7 +19,7 @@ from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
 GIF = "https://te.legra.ph/file/f3e706834705fa00cd5e2.mp4"
-
+FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
@@ -213,8 +213,8 @@ async def not_joined(client: Client, message: Message):
     except IndexError:
         pass
     
-    await message.reply_video(
-        video ="https://graph.org//file/3b225ba011c151045bcc4.mp4",
+    await message.reply_photo(
+        photo = FORCE,
         caption = FORCE_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
