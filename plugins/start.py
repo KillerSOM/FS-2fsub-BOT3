@@ -242,7 +242,7 @@ async def info(client: Bot, message: Message):
     now = datetime.now()
     delta = now - client.uptime
     time = get_readable_time(delta.seconds)
-    await msg.edit(f"🚻 : <b>{len(users)} USERS</b>\n\n<b>🤖 UPTIME » {time}</b>", reply_markup = reply_markup, quote= True)
+    await msg.edit(f"🚻 : <b>{len(users)} USERS</b>\n\n<b>🤖 UPTIME » {time}</b>", reply_markup = reply_markup)
     #await message.reply(BOT_STATS_TEXT.format(uptime=time))
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
