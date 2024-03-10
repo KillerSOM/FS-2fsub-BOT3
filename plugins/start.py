@@ -18,7 +18,7 @@ from helper_func import subscribed, encode, decode, get_messages, get_readable_t
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
-GIF = "https://te.legra.ph/file/f3e706834705fa00cd5e2.mp4"
+GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
