@@ -91,8 +91,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Aɴɪᴍᴇ Cʜᴀɴɴᴇʟ', url = 'https://t.me/Animemoviesr'),
-                    InlineKeyboardButton('Oɴɢᴏɪɴɢ Aɴɪᴍᴇ', url = 'https://t.me/Infinity_Ongoing')
+                    InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/BTTH480P'),
+                    InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/BTTH_GROUP')
                 ]])
          
         await message.reply_video(
@@ -119,8 +119,8 @@ async def help(client: Client, message: Message):
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
          
-        await message.reply_photo(
-            photo= ONGOING,
+        await message.reply_video(
+            video= GIF,
             caption= HELP_TEXT.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
