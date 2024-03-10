@@ -10,11 +10,11 @@ from pyrogram.enums import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 #from telegram.constants import ParseMode
-
+from datetime import datetime 
 
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL
-from helper_func import subscribed, encode, decode, get_messages
+from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
@@ -233,6 +233,17 @@ async def get_users(client: Bot, message: Message):
     msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
     users = await full_userbase()
     await msg.edit(f"{len(users)} users are using this bot")
+
+@Bot.on_message(filters.command('info') & filters.private & filters.user(ADMINS))
+async def info(client: Bot, message: Message):
+    reply_markup = InlineKeyboardMarkup([InlineKeyboardButton("⛔️  CLOSE  ⛔️", callback_data = "close")])
+    msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
+    users = await full_userbase()
+    now = datetime.now()
+    delta = now - client.uptime
+    time = get_readable_time(delta.seconds)
+    await msg.edit(f"🚻 : <b>{len(users)} USERS</b>\n\n<b>🤖 UPTIME » {time}</b>", reply_markup = reply_markup, quote= True)
+    #await message.reply(BOT_STATS_TEXT.format(uptime=time))
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
