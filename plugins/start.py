@@ -236,19 +236,13 @@ async def get_users(client: Bot, message: Message):
 
 @Bot.on_message(filters.command('info') & filters.private & filters.user(ADMINS))
 async def info(client: Bot, message: Message):
-    reply_markup = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("⛔️  CLOSE  ⛔️", callback_data = "close")
-         ]
-               #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
-         ])
-    msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("⛔️  CLOSE  ⛔️", callback_data = "close")]])
+    #msg = await client.send_message(chat_id=message.chat.id, text=WAIT_MSG)
     users = await full_userbase()
     now = datetime.now()
     delta = now - client.uptime
     time = get_readable_time(delta.seconds)
-    await msg.edit(f"🚻 : <b>{len(users)} USERS</b>\n\n<b>🤖 UPTIME » {time}</b>", reply_markup = reply_markup)
+    await message.reply(f"🚻 : <b>{len(users)} USERS</b>\n\n<b>🤖 UPTIME » {time}</b>", reply_markup = reply_markup, quote= True)
     #await message.reply(BOT_STATS_TEXT.format(uptime=time))
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
