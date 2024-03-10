@@ -114,7 +114,7 @@ async def help(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/chatbox480')
+                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/btth_group')
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
@@ -197,8 +197,9 @@ async def not_joined(client: Client, message: Message):
     except IndexError:
         pass
     
-    await message.reply(
-        text = FORCE_MSG.format(
+    await message.reply_video(
+        video ="https://graph.org//file/3b225ba011c151045bcc4.mp4",
+        caption = FORCE_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
