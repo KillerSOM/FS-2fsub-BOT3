@@ -67,7 +67,7 @@ class Bot(Client):
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
             test = await self.send_message(chat_id = db_channel.id, text = "Bot Restarted...")
-            await asnycio.sleep(30)
+            await asyncio.sleep(30)
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
