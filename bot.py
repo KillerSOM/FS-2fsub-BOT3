@@ -3,6 +3,7 @@
 from aiohttp import web
 from plugins import web_server
 
+import asyncio
 import pyromod.listen
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -65,7 +66,8 @@ class Bot(Client):
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+            test = await self.send_message(chat_id = db_channel.id, text = "Bot Restarted...")
+            await asnycio.sleep(30)
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
