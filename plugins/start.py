@@ -74,6 +74,8 @@ async def start_command(client: Client, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
+        await asyncio.sleep(10)
+        await messages.delete()
 
         for msg in messages:
 
@@ -142,9 +144,6 @@ async def help(client: Client, message: Message):
             reply_markup = reply_markup,
             #parse_mode='HTML'#quote = True
         )
-        
-        await asyncio.sleep(10)
-        await messages.delete()
 
         return
 
