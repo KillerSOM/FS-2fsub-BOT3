@@ -104,7 +104,7 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/BTTH480P'),
-                    InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/BTTH_GROUP')
+                    InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
                 ]])
          
         await message.reply_video(
@@ -126,7 +126,7 @@ async def help(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/btth_group')
+                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/Yan_Alliance')
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
