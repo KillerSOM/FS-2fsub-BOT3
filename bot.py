@@ -66,8 +66,7 @@ class Bot(Client):
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Bot Restarted...")
-            await asyncio.sleep(30)
+            test = await self.send_message(chat_id = db_channel.id, text = "Testing")
             await test.delete()
         except Exception as e:
             self.LOGGER(__name__).warning(e)
@@ -84,6 +83,10 @@ class Bot(Client):
         await app.setup()
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
+
+        s_msg = await self.send_message(chat_id = CHANNEL_ID, text = f"{self.username} bot Restarted...")
+        await asyncio.sleep(30)
+        await s_msg.delete()
 
     async def stop(self, *args):
         await super().stop()
