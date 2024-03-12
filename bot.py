@@ -84,7 +84,7 @@ class Bot(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
 
-        s_msg = await self.send_message(chat_id = CHANNEL_ID, text = f"{self.username} bot Restarted...")
+        s_msg = await self.send_message(chat_id = CHANNEL_ID, text = f"<b><a href='t.me/{self.username}'>Bot</a> Restarted...</b>")
         await asyncio.sleep(30)
         await s_msg.delete()
 
