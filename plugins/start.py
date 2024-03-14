@@ -21,7 +21,7 @@ ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
 GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 
-@Bot.on_message(filters.command('start') & (filters.private | filters.group | filter.channel) & subscribed)
+@Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
     ui = message.from_user.id
     un = message.from_user.username
