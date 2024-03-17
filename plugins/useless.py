@@ -23,7 +23,7 @@ async def bcmd(bot: Bot, message: Message):
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
-    await message.reply(text="<b>❏ Cᴏᴍᴍᴀɴᴅs ғᴏʀ ʙᴏᴛ Aᴅᴍɪɴs\n\n‣ /start :</b> start the bot or get posts\n<b>‣ /batch :</b> create group messages\n<b>‣ /genlink :</b> create link for one post\n<b>‣ /broadcast :</b> broadcast Message\n<b>‣ /info :</b> view bot Statistics + Uptime\n<b>", reply_markup = reply_markup, quote= True)
+    await message.reply(text="<b>❏ Cᴏᴍᴍᴀɴᴅs ғᴏʀ ʙᴏᴛ Aᴅᴍɪɴs\n\n‣ /batch :</b> create group messages\n\n<b>‣ /genlink :</b> create link for one post\n\n<b>‣ /broadcast :</b> broadcast Message\n\n<b>‣ /info :</b> view bot Statistics + Uptime\n<b>", reply_markup = reply_markup, quote= True)
     
         
 
