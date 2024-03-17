@@ -17,7 +17,7 @@ from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
-ONGOING = "https://telegra.ph/file/c303fe34a28376a6c7bfe.jpg"
+ONGOING = "https://graph.org//file/a314b2529cb171b7f6f44.jpg"
 GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 
@@ -107,8 +107,8 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
                 ]])
          
-        await message.reply_video(
-            video= GIF,
+        await message.reply_photo(
+            photo= ONGOING,
             caption = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
@@ -131,8 +131,8 @@ async def help(client: Client, message: Message):
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
          
-        await message.reply_video(
-            video= GIF,
+        await message.reply_photo(
+            photo= ONGOING,
             caption= HELP_TEXT.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
