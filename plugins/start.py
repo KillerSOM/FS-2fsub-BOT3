@@ -107,6 +107,7 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
         smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>", quote=True)
+        await asyncio.sleep(0.5)
         await smsg.edit(
             #photo= ONGOING,
             text = START_MSG.format(
