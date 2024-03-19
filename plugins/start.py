@@ -17,7 +17,7 @@ from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
-ONGOING = "https://graph.org//file/722bb73a977946e810a85.jpg"
+ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 
