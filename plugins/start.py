@@ -106,9 +106,15 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
                     #InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
-        smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>", quote=True)
-        await asyncio.sleep(0.5)
-        await smsg.edit(
+        loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱")
+        await asyncio.sleep(0.1)
+        loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱")
+        await asyncio.sleep(0.1)
+        loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱")
+        await asyncio.sleep(0.1)
+        loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰")
+        await asyncio.sleep(0.1)
+        await loading3.edit(
             #photo= ONGOING,
             text = START_MSG.format(
                 first = message.from_user.first_name,
