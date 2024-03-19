@@ -117,6 +117,7 @@ async def start_command(client: Client, message: Message):
                 id = message.from_user.id
             ),
             reply_markup = reply_markup,
+            quote = True
         )
         return
 
