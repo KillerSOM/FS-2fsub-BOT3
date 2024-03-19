@@ -117,7 +117,7 @@ async def start_command(client: Client, message: Message):
                 id = message.from_user.id
             ),
             reply_markup = reply_markup,
-            quote = True
+            #quote = True
         )
         return
 
@@ -143,7 +143,7 @@ async def help(client: Client, message: Message):
             ),
             reply_markup = reply_markup,
             #parse_mode='HTML'#
-            #quote = True
+            quote = True
         )
 
         return
