@@ -103,7 +103,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🤖 Developer', url = f'tg://user?id={OWNER_ID}'),
+                    InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
                     InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
         smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>", quote=True)
