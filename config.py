@@ -42,7 +42,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/d48e6d30e443dcae118b8.jpg")
 
 #start message
-START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nI provide Files through Special Links ...</b>")
+START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nɪ ᴘʀᴏᴠɪᴅᴇ ғɪʟᴇs ᴛʜʀᴏᴜɢʜ\nsᴘᴇᴄɪᴀʟ ʟɪɴᴋs</b>")
 
 try:
     ADMINS=[]
