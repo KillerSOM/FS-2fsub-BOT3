@@ -13,7 +13,7 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from datetime import datetime 
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
@@ -103,7 +103,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
+                    InlineKeyboardButton('🤖 Developer', url = f'tg://user?id={OWNER_ID}'),
                     InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
         smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>", quote=True)
