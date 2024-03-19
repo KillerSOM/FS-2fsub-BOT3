@@ -103,13 +103,13 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/BTTH480P'),
-                    InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
+                    InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
+                    #InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
                 ]])
          
-        await message.reply_photo(
-            photo= ONGOING,
-            caption = START_MSG.format(
+        await message.reply_text(
+            #photo= ONGOING,
+            text = START_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -131,9 +131,9 @@ async def help(client: Client, message: Message):
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
          
-        await message.reply_photo(
-            photo= ONGOING,
-            caption= HELP_TEXT.format(
+        await message.reply_text(
+            #photo= ONGOING,
+            text = HELP_TEXT.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
@@ -141,7 +141,8 @@ async def help(client: Client, message: Message):
                 id = message.from_user.id
             ),
             reply_markup = reply_markup,
-            #parse_mode='HTML'#quote = True
+            #parse_mode='HTML'#
+            quote = True
         )
 
         return
@@ -219,9 +220,9 @@ async def not_joined(client: Client, message: Message):
     except IndexError:
         pass
     
-    await message.reply_photo(
-        photo = FORCE,
-        caption = FORCE_MSG.format(
+    await message.reply_text(
+        #photo = FORCE,
+        text = FORCE_MSG.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
