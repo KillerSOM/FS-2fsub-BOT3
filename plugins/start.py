@@ -104,7 +104,7 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
-                    InlineKeyboardButton('⛔️ Close', callback_data = 'close')
+                    #InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
         smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>", quote=True)
         await asyncio.sleep(0.5)
