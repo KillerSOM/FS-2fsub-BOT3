@@ -104,10 +104,10 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
-                    #InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
+                    InlineKeyboardButton('⛔️ Close', callback_data = 'close')
                 ]])
-         
-        await message.reply_text(
+        smsg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>")
+        await smsg.edit(
             #photo= ONGOING,
             text = START_MSG.format(
                 first = message.from_user.first_name,
