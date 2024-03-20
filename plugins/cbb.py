@@ -30,6 +30,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "chnl1":
+        await query.message.delete()
         await query.message.reply_photo(
             photo=BTTH,
             #caption=f"<b>○ Channel: <a href='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
