@@ -9,7 +9,7 @@ SOLO = "https://graph.org//file/e50b4e50421ddaaab858f.jpg"
 BTTH = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(message: Message, query: CallbackQuery):
     data = query.data
     if data == "chnl1":
         await query.message.edit(
@@ -39,11 +39,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await query.message.edit(
                     #photo = SCP,
                     text = CHNL_MSG.format(
-                first = client.from_user.first_name,
-                last = client.from_user.last_name,
-                username = None if not client.from_user.username else '@' + client.from_user.username,
-                mention = client.from_user.mention,
-                id = client.from_user.id
+                first = message.from_user.first_name,
+                last = message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
             ),
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
