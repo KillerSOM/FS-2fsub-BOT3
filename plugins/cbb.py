@@ -49,6 +49,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         )
 
     elif data == "chnl2":
+           await query.message.delete()
            await query.message.reply_photo(
                         photo = SOLO,
                         #caption = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
