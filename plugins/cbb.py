@@ -12,7 +12,7 @@ BTTH = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "chnl1":
-        await query.message.edit_photo(
+        await query.message.edit(
                         photo = BTTH,
                         caption = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1</b>",
             #disable_web_page_preview = True,
