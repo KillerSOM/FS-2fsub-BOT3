@@ -9,7 +9,7 @@ SOLO = "https://graph.org//file/e50b4e50421ddaaab858f.jpg"
 BTTH = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 
 @Bot.on_callback_query()
-async def cb_handler(message: Message, query: CallbackQuery):
+async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "chnl1":
         await query.message.edit(
