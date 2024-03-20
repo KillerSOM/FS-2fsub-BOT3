@@ -45,7 +45,7 @@ START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/d48e6d30e443dca
 START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nɪ ᴘʀᴏᴠɪᴅᴇ ғɪʟᴇs ᴛʜʀᴏᴜɢʜ\nsᴘᴇᴄɪᴀʟ ʟɪɴᴋs</b>")
 
 #channel start message
-CHNL_MSG = os.environ.get("CHNL_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nWellcome to this page. Here you will redirect to my connected channels.\nClick Below buttons for redirect My Channels.</b>")
+CHNL_MSG = os.environ.get("CHNL_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nWellcome to this page. Here you will redirect to my connected channels.\n\nClick Below buttons for redirect My Channels.</b>")
 
 try:
     ADMINS=[]
