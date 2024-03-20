@@ -13,13 +13,14 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from datetime import datetime 
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID, CHNL_MSG
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
+SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
@@ -151,6 +152,34 @@ async def help(client: Client, message: Message):
             reply_markup = reply_markup,
             #parse_mode='HTML'#
             quote = True
+        )
+
+        return
+
+@Bot.on_message(filters.command('channel') & filters.private)
+async def channel(client: Client, message: Message):
+        reply_markup = InlineKeyboardMarkup(
+            [
+                [
+                     InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟷", callback_data = "chnl1"),
+                     InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟸", callback_data = "chnl2")
+                     #InlineKeyboardButton('Ask your Queries here', url='https://t.me/Yan_Alliance')
+         ]
+               #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
+         ])
+         
+        await message.reply_photo(
+            photo= SCP,
+            caption = CHNL_MSG.format(
+                first = message.from_user.first_name,
+                last = message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
+            ),
+            reply_markup = reply_markup,
+            #parse_mode='HTML'#
+            #quote = True
         )
 
         return
