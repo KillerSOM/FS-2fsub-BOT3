@@ -32,12 +32,15 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     if data == "chnl1":
         await query.message.reply_photo(
             photo=BTTH,
-            caption=f"<b>○ Channel: <a href='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
+            #caption=f"<b>○ Channel: <a href='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         #InlineKeyboardButton("⬅️ Back", callback_data="start"),
-                        InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data="close")
+                        #InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data="close")
+                        InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/BTTH480P'),
+                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance'),
+                        InlineKeyboardButton('○ Channel Owner ○', url = 'https://t.me/Shidoteshika1')
                     ]
                 ]
             )
@@ -46,13 +49,16 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "chnl2":
            await query.message.reply_photo(
                         photo = SOLO,
-                        caption = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
+                        #caption = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
                         #InlineKeyboardButton("⬅️ Back", callback_data = "start"),
-                        InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data = "close")
+                        #InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data = "close")
+                        InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/Solo_Leveling_EngSubb'),
+                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Leveling_Group'),
+                        InlineKeyboardButton('○ Channel Owner ○', url = 'https://t.me/Shidoteshika1')
                     ]])
         )
     elif data == "start":
