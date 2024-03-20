@@ -22,7 +22,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         InlineKeyboardButton("⬅️ Back", callback_data = "start"),
                         InlineKeyboardButton("⛔️ Close", callback_data = "close")
                     ]])
-        )"""
+        )        
+"""
 
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
