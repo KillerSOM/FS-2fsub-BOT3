@@ -38,7 +38,7 @@ async def cb_handler(message: Message, query: CallbackQuery):
     elif data == "start":
         await query.message.edit(
                     #photo = SCP,
-                    text = CHNL_NSG1,
+                    text = CHNL_MSG1,
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
