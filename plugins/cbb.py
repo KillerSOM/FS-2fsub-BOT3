@@ -13,8 +13,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "chnl1":
         await query.message.edit(
-                        photo = BTTH,
-                        caption = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1</b>",
+                        #photo = BTTH,
+                        text = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
@@ -24,9 +24,9 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                     ]])
         )
     elif data == "chnl2":
-           await query.message.edit_photo(
-                        photo = SOLO,
-                        caption = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1</b>",
+           await query.message.edit(
+                        #photo = SOLO,
+                        text = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
@@ -36,8 +36,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                     ]])
         )
     elif data == "start":
-        await query.message.edit_photo(
-                    photo = SCP,
+        await query.message.edit(
+                    #photo = SCP,
                     text = CHNL_MSG,
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
