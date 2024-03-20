@@ -36,23 +36,23 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("⬅️ Back", callback_data="start"),
-                        InlineKeyboardButton("⛔️ Close", callback_data="close")
+                        #InlineKeyboardButton("⬅️ Back", callback_data="start"),
+                        InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data="close")
                     ]
                 ]
             )
         )
 
     elif data == "chnl2":
-           await query.message.edit(
-                        #photo = SOLO,
-                        text = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
+           await query.message.reply_photo(
+                        photo = SOLO,
+                        caption = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("⬅️ Back", callback_data = "start"),
-                        InlineKeyboardButton("⛔️ Close", callback_data = "close")
+                        #InlineKeyboardButton("⬅️ Back", callback_data = "start"),
+                        InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data = "close")
                     ]])
         )
     elif data == "start":
