@@ -14,7 +14,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     if data == "chnl1":
         await query.message.edit(
                         #photo = BTTH,
-                        text = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1</b>",
+                        text = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
@@ -26,7 +26,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "chnl2":
            await query.message.edit(
                         #photo = SOLO,
-                        text = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1</b>",
+                        text = f"<b>○ Channel: <a href ='https://t.me/Solo_Leveling_EngSubb'>Solo Leveling</a>\n\n○ Chat Group: <a href ='https://t.me/Leveling_Group'>Leveling Box</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
                 [
