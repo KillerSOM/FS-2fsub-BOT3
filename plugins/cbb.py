@@ -39,7 +39,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         #InlineKeyboardButton("⬅️ Back", callback_data="start"),
                         #InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data="close")
                         InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/BTTH480P'),
-                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance'),
+                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Yan_Alliance')
+                    ],[
                         InlineKeyboardButton('○ Channel Owner ○', url = 'https://t.me/Shidoteshika1')
                     ]
                 ]
@@ -57,7 +58,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         #InlineKeyboardButton("⬅️ Back", callback_data = "start"),
                         #InlineKeyboardButton("⛔️ Cʟᴏsᴇ ᴛʜɪs Pᴀɢᴇ ⛔️", callback_data = "close")
                         InlineKeyboardButton('⛩️ Anime Channel', url = 'https://t.me/Solo_Leveling_EngSubb'),
-                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Leveling_Group'),
+                        InlineKeyboardButton('🌐 Chat Group', url = 'https://t.me/Leveling_Group')
+                    ],[
                         InlineKeyboardButton('○ Channel Owner ○', url = 'https://t.me/Shidoteshika1')
                     ]])
         )
