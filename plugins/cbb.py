@@ -1,7 +1,7 @@
 #(©)Codexbotz
 
 from bot import Bot
-from config import CHNL_MSG
+from config import CHNL_MSG, CHNL_MSG1
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
@@ -38,13 +38,7 @@ async def cb_handler(message: Message, query: CallbackQuery):
     elif data == "start":
         await query.message.edit(
                     #photo = SCP,
-                    text = CHNL_MSG.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
+                    text = CHNL_NSG1,
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
