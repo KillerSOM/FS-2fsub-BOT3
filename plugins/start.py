@@ -21,6 +21,7 @@ ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 GIF = "https://graph.org//file/22abe0fc7ddfd5fadb37e.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
+help = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
@@ -146,9 +147,9 @@ async def help(client: Client, message: Message):
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
          
-        await message.reply_text(
-            #photo= ONGOING,
-            text = HELP_TEXT.format(
+        await message.reply_photo(
+            photo= help,
+            caption = HELP_TEXT.format(
                 first = message.from_user.first_name,
                 last = message.from_user.last_name,
                 username = None if not message.from_user.username else '@' + message.from_user.username,
