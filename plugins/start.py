@@ -113,15 +113,15 @@ async def start_command(client: Client, message: Message):
                     InlineKeyboardButton('⚡ Cʜᴀɴɴᴇʟs', callback_data = 'chnls'),
                     InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")
                 ]])
-        loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱")
-        await asyncio.sleep(0.1)
-        loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱")
-        await asyncio.sleep(0.1)
-        loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱")
-        await asyncio.sleep(0.1)
-        loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰")
-        await asyncio.sleep(0.1)
-        await loading3.edit(
+        #loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱")
+        #await asyncio.sleep(0.1)
+        #loading2 = await loading.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▱ ▱")
+        #await asyncio.sleep(0.1)
+        #loading3 = await loading2.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▱")
+        #await asyncio.sleep(0.1)
+        #loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰")
+        #await asyncio.sleep(0.1)
+        await message.reply(
             #photo= ONGOING,
             text = START_MSG.format(
                 first = message.from_user.first_name,
