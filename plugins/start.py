@@ -35,8 +35,8 @@ async def start_command(client: Client, message: Message):
     else :
         atype = 'Normal'
         
-    await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n<b><blockquote>ᴜsᴇʀ ᴛʏᴘᴇ: {atype}</blockquote></b>➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
-    
+    await client.send_message(LOG_CHNL, text=f'<b><blockquote>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</blockquote></b>\n\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>\nᴍᴇɴᴛɪᴏɴ: {um}\nᴜsᴇʀ ɴᴀᴍᴇ: @{un}</b>\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n<b><blockquote>ᴜsᴇʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ: {atype}</blockquote></b>', reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Bᴏᴛ-3", url = f"https://t.me/{client.username}"),InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")]]))
+     
     id = message.from_user.id
     if not await present_user(id):
         try:
@@ -243,8 +243,8 @@ async def not_joined(client: Client, message: Message):
     #await message.text.forward(chat_id=CHANNEL_ID)
     #forwarded_message = await bot.send_message(CHANNEL_ID, message.text)
     # Add a forward tag to the forwarded message
-    await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: None-Subscriber 🚫</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
-    
+    #await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: None-Subscriber 🚫</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
+    await client.send_message(LOG_CHNL, text=f'<b><s>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</s></b>\n\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>\nᴍᴇɴᴛɪᴏɴ: {um}\nᴜsᴇʀ ɴᴀᴍᴇ: @{un}</b>\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: None-Subscriber 🚫</b>', reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Bᴏᴛ-3", url = f"https://t.me/{client.username}"),InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")]]))
     buttons = [
         [
              InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.invitelink),
