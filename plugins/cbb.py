@@ -8,21 +8,9 @@ SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 SOLO = "https://graph.org//file/e50b4e50421ddaaab858f.jpg"
 BTTH = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 
-"""@Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
-    data = query.data
-    if data == "chnl1":
-        await query.message.edit(
-                        #photo = BTTH,
-            #disable_web_page_preview = True,
-            reply_markup = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("⬅️ Back", callback_data = "start"),
-                        InlineKeyboardButton("⛔️ Close", callback_data = "close")
-                    ]])
-        )        
-"""
+"""channel = await app.get_chat(channel_id)
+        channel_name = channel.title
+        channel_username = channel.username"""
 #text = f"<b>○ Channel: <a href ='https://t.me/BTTH480P'>Battle Through The Heavens</a>\n\n○ Chat Group: <a href ='https://t.me/Yan_Alliance'>Yan Alliance</a>\n\n○ Owner: @Shidoteshika1\n➖➖➖➖➖➖➖➖➖➖➖➖➖</b>",
 
 
