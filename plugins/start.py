@@ -165,11 +165,11 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
-    ch_n1 = ch1.title
+        ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
+        ch_n1 = ch1.title
 
-    ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
-    ch_n2 = ch2.title
+        ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
+        ch_n2 = ch2.title
 
         reply_markup = InlineKeyboardMarkup(
             [
