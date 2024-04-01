@@ -13,12 +13,12 @@ from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 from datetime import datetime 
 
 from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID, CHNL_MSG
+from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID, CHNL_MSG, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user
 
 ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
-GIF = "https://graph.org//file/bec1e8c55ab3b734e69fa.mp4"
+GIF = "https://graph.org//file/22abe0fc7ddfd5fadb37e.mp4"
 FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 
@@ -161,6 +161,34 @@ async def help(client: Client, message: Message):
         )
 
         return
+
+
+@Bot.on_message(filters.command('fsub') & filters.private)
+async def check_force_sub(client: Client, message: Message):
+    ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
+    ch_n1 = ch1.title
+
+    ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
+    ch_n2 = ch2.title
+
+        reply_markup = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(ch_n1, url= client.invitelink),
+         ],
+                [ InlineKeyboardButton(ch_n2, url= client.invitelink2)]#, InlineKeyboardButton("⛔️ Close", callback_data = "close")]
+         ])
+         
+        await message.reply_video(
+            video = GIF,
+            caption = "<b>CURRENT FORCE-SUBS CHANNELS :\n\n<blockquote>click below buttons to Join</blockquote></b>",
+            reply_markup = reply_markup,
+            #parse_mode='HTML'#
+            #quote = True
+        )
+
+        return
+
 
 @Bot.on_message(filters.command('channel') & filters.private)
 async def channel(client: Client, message: Message):
