@@ -68,7 +68,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "chnls":
         await query.message.edit(
                     #photo = SCP,
-                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ Channel 1: <a href='{client.invitelink}'>Click Here</a>\n\n○ Channel 2: <a href='{client.invitelink2}'>Click Here</a></b>\n\n",
+                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ CHANNEL 1:- <a href='{client.invitelink}'>CLICK HERE</a>\n\n○ CHANNEL 2:- <a href='{client.invitelink2}'>CLICK HERE</a>\n\n<blockquote>⚡ Tᴡᴏ ᴄʜᴀɴɴᴇʟs ᴀʀᴇ ᴄᴏɴɴᴇᴄᴛᴇᴅ</blockquote></b>",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
