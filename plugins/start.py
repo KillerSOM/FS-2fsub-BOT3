@@ -157,7 +157,7 @@ async def help(client: Client, message: Message):
             ),
             reply_markup = reply_markup,
             #parse_mode='HTML'#
-            quote = True
+            #quote = True
         )
 
         return
