@@ -105,7 +105,7 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     #InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
-                    InlineKeyboardButton('⛔️ Close', callback_data = 'close')
+                    InlineKeyboardButton('⚡ Connected Channels', callback_data = 'chnls')
                 ]])
         loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱", quote = True)
         await asyncio.sleep(0.1)
@@ -135,7 +135,7 @@ async def help(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Ask your Queries here', url='https://t.me/Chidori_Discussion')
+                    InlineKeyboardButton('Still Doubt, Contact Admin', url='https://t.me/Shidoteshika1')
          ]
                #[ InlineKeyboardButton("🤖 Bot Commands", callback_data = "command"), InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
