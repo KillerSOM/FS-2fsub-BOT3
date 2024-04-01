@@ -33,8 +33,8 @@ DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://telegrambot22024:bot22024
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
 
 #force sub channel id, if you want enable force sub
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1001899121838"))
-FORCE_SUB_CHANNEL1 = int(os.environ.get("FORCE_SUB_CHANNEL1", "-1001602389428"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1001602389428"))
+FORCE_SUB_CHANNEL1 = int(os.environ.get("FORCE_SUB_CHANNEL1", "-1002093678199"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
@@ -42,7 +42,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/d48e6d30e443dcae118b8.jpg")
 
 #start message
-START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nɪ ᴘʀᴏᴠɪᴅᴇ ғɪʟᴇs ᴛʜʀᴏᴜɢʜ\nsᴘᴇᴄɪᴀʟ ʟɪɴᴋs\n<blockquote>🤖 Developer: @Shidoteshika1</blockquote></b>")
+START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\n➪ ɪ ᴘʀᴏᴠɪᴅᴇ ғɪʟᴇs ᴛʜʀᴏᴜɢʜ\nsᴘᴇᴄɪᴀʟ ʟɪɴᴋs\n<blockquote>🤖 Developer: @Shidoteshika1</blockquote></b>")
 
 #channel start message
 CHNL_MSG = os.environ.get("CHNL_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nWellcome to this page. Here you will redirect to my connected channels.\n\nClick Below buttons for redirect My Channels.</b>")
