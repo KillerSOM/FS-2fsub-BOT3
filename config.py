@@ -72,7 +72,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<b>I am only file store bot\n\nFor More Info Click: /start</b>\n"
 
-HELP_TEXT = "<b>🍁 Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n/help -</b> Oɴʟʏ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴡɪᴛʜᴏᴜᴛ jᴏɪɴɪɴɢ ᴀɴʏ ᴄʜᴀɴɴᴇʟ.\n\n"
+HELP_TEXT = "<b>🍁 Hᴇʟʟᴏ {mention} ~\n\nI am a file supplier bot and meant to provides Files from Specified Channels. You need to Join Mentioned Channels to get files or Initiate Messages...\n\n<b>/fsub -</b> Cʜᴇᴄᴋ ʙᴏᴛ-ᴄᴏɴɴᴇᴄᴛᴇᴅ/ғᴏʀᴄᴇ-sᴜʙ ᴄʜᴀɴɴᴇʟs\n/help -</b> Oᴘᴇɴ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ !.\n<blockquotes>You can use above commands without joining force-sub Channel</blockquotes>\n"
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(1536699044)
