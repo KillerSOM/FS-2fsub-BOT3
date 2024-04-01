@@ -65,18 +65,20 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                         InlineKeyboardButton('○ Channel Owner ○', url = 'https://t.me/Shidoteshika1')
                     ]])
         )
-    elif data == "start":
+    elif data == "chnls":
         await query.message.edit(
                     #photo = SCP,
-                    text = CHNL_MSG1,
+                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ Channel 1: <a href='{client.invitelink}'>Click Here</a>\n○ Channel 2: <a href='{client.invitelink2}'>Click Here</a>",
             #disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
                 
                     #InlineKeyboardButton('⛩️ OUR OTHER CHANNELS ⛩️', url='https://t.me/animemoviesr/3171')
                 [
-                     InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟷", callback_data = "chnl1"),
-                     InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟸", callback_data = "chnl2"),
+                     InlineKeyboardButton('🤖 Dᴇᴠᴇʟᴏᴘᴇʀ', url = 'https://t.me/Shidoteshika1'),
+                     InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")
+                     #InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟷", callback_data = "chnl1"),
+                     #InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟸", callback_data = "chnl2"),
                      #InlineKeyboardButton("❕", callback_data = "help")
                 ]])
         )
