@@ -68,8 +68,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "chnls":
         await query.message.edit(
                     #photo = SCP,
-                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ Channel 1: <a href='{client.invitelink}'>Click Here</a>\n○ Channel 2: <a href='{client.invitelink2}'>Click Here</a>",
-            #disable_web_page_preview = True,
+                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ Channel 1: <a href='{client.invitelink}'>Click Here</a>\n\n○ Channel 2: <a href='{client.invitelink2}'>Click Here</a></b>\n\n",
+            disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
                 
@@ -80,7 +80,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                      #InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟷", callback_data = "chnl1"),
                      #InlineKeyboardButton("Cʜᴀɴɴᴇʟ 𝟸", callback_data = "chnl2"),
                      #InlineKeyboardButton("❕", callback_data = "help")
-                ]])
+                ]]),
         )
     elif data == "command":
            await query.message.edit_text(
