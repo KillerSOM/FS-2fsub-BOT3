@@ -30,7 +30,12 @@ async def start_command(client: Client, message: Message):
     #await message.text.forward(chat_id=CHANNEL_ID)
     #forwarded_message = await bot.send_message(CHANNEL_ID, message.text)
     # Add a forward tag to the forwarded message
-    await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
+    if ui in ADMINS :
+        atype = 'Admin'
+    else :
+        atype = 'Normal'
+        
+    await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n<b><blockquote>ᴜsᴇʀ ᴛʏᴘᴇ: {atype}</blockquote></b>➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
     
     id = message.from_user.id
     if not await present_user(id):
