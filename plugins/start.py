@@ -181,7 +181,7 @@ async def check_force_sub(client: Client, message: Message):
          
         await message.reply_video(
             video = GIF,
-            caption = "<b>CURRENT FORCE-SUBS CHANNELS :\n\n<blockquote>click below buttons to Join</blockquote></b>",
+            caption = "<b>CURRENT FORCE-SUB CHANNELS :\n\n<blockquote>Click below buttons to Join</blockquote></b>",
             reply_markup = reply_markup,
             #parse_mode='HTML'#
             #quote = True
