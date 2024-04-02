@@ -57,7 +57,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "chnls":
         await query.message.edit(
                     #photo = SCP,
-                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ CHANNEL 1 -> <a href='{client.invitelink}'>CLICK HERE</a>\n\n○ CHANNEL 2 -> <a href='{client.invitelink2}'>CLICK HERE</a>\n\n<blockquote>⚡ Tᴡᴏ ᴄʜᴀɴɴᴇʟs ᴀʀᴇ ᴄᴏɴɴᴇᴄᴛᴇᴅ</blockquote></b>",
+                    text = f"<b><blockquote>+ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀɴɴᴇʟs ᴛᴏ ᴛʜᴇ Bᴏᴛ +</blockquote>\n\n○ CHANNEL 1 ➪ <a href='{client.invitelink}'>CLICK HERE</a>\n\n○ CHANNEL 2 ➪ <a href='{client.invitelink2}'>CLICK HERE</a>\n\n<blockquote>⚡ Tᴡᴏ ᴄʜᴀɴɴᴇʟs ᴀʀᴇ ᴄᴏɴɴᴇᴄᴛᴇᴅ</blockquote></b>",
             disable_web_page_preview = True,
             reply_markup = InlineKeyboardMarkup(
             [
@@ -82,7 +82,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 ○ Lɪʙʀᴀʀʏ : Pyrogram asyncio {__version__}
 ○ Dᴇᴠᴇʟᴏᴘᴇʀ : The King 🜲
 ➖➖➖➖➖➖➖➖➖➖
-○ Fsᴜʙ Cʜᴀɴɴᴇʟ: 
+○ Fsᴜʙ Cʜᴀɴɴᴇʟ : 
 (1) {ch_n1}
 (2) {ch_n2}"""
             , show_alert=True
