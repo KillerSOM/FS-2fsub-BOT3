@@ -1,8 +1,9 @@
 #(©)Codexbotz
 
 from bot import Bot
-from config import CHNL_MSG, CHNL_MSG1
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from config import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHNL_MSG, CHNL_MSG1
+from pyrogram import __version__
 
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 SOLO = "https://graph.org//file/e50b4e50421ddaaab858f.jpg"
@@ -70,6 +71,22 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                      #InlineKeyboardButton("❕", callback_data = "help")
                 ]]),
         )
+    elif data == "alt":
+        ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
+        ch_n1 = ch1.title
+        ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
+        ch_n2 = ch2.title
+            
+        await query.answer(
+            text = f"""○ Lᴀɴɢᴜᴀɢᴇ : Python3
+○ Lɪʙʀᴀʀʏ : Pyrogram asyncio {__version__}
+○ Dᴇᴠᴇʟᴏᴘᴇʀ : The King 🜲
+➖➖➖➖➖➖➖➖➖➖
+○ Fsᴜʙ Cʜᴀɴɴᴇʟ: 
+(1) {ch_n1}
+(2) {ch_n2}"""
+            , show_alert=True
+        )        
     elif data == "command":
            await query.message.edit_text(
                         text = """<b>○ <u>BOT COMMANDS</u> ○
