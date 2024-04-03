@@ -52,7 +52,7 @@ CHNL_MSG1 = os.environ.get("CHNL_MSG1", "<b>🍁 Hᴇᴇʏ ~\n\nWellcome to this
 
 try:
     ADMINS=[]
-    for x in (os.environ.get("ADMINS", "6376328008 6974458273 1951547289").split()):
+    for x in (os.environ.get("ADMINS", "6376328008").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
