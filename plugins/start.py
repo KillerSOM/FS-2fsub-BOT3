@@ -25,18 +25,18 @@ HELP = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
-    ui = message.from_user.id
-    un = message.from_user.username
-    um = message.from_user.mention
+    #ui = message.from_user.id
+    #un = message.from_user.username
+    #um = message.from_user.mention
     #await message.text.forward(chat_id=CHANNEL_ID)
     #forwarded_message = await bot.send_message(CHANNEL_ID, message.text)
     # Add a forward tag to the forwarded message
-    if ui in ADMINS :
-        atype = '<b><blockquote>ᴜsᴇʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ: Admin</blockquote></b>'
-    else :
-        atype = ''
+    #if ui in ADMINS :
+    #    atype = '<b><blockquote>ᴜsᴇʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ: Admin</blockquote></b>'
+    #else :
+    #    atype = ''
         
-    await client.send_message(LOG_CHNL, text=f'<b><blockquote>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</blockquote></b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴍᴇɴᴛɪᴏɴ: {um}\nᴜsᴇʀ ɴᴀᴍᴇ: @{un}</b>\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n{atype}', reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Bᴏᴛ-3", url = f"https://t.me/{client.username}"),InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")]]))
+    #await client.send_message(LOG_CHNL, text=f'<b><blockquote>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</blockquote></b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴍᴇɴᴛɪᴏɴ: {um}\nᴜsᴇʀ ɴᴀᴍᴇ: @{un}</b>\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: Subscriber ✅</b>\n{atype}', reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Bᴏᴛ-3", url = f"https://t.me/{client.username}"),InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")]]))
      
     id = message.from_user.id
     if not await present_user(id):
