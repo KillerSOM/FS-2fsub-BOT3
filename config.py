@@ -1,12 +1,17 @@
 #(©)CodeXBotz
 
-
-
-
 import os
 import logging
 from logging.handlers import RotatingFileHandler
+from database.database import database
 
+channels = await get_all_channels()
+fsub1, fsub2=None, None
+if len(channels)==2:
+    fsub1 = channels[0]
+    fsub2 = channels[1]
+if len(channels)==1:
+    fsub1 = channels[0]
 
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6750822148:AAHkqRrXxVRklrJKgasQAlp8-M4ZTygw5Io")
@@ -33,8 +38,8 @@ DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://telegrambot22024:bot22024
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
 
 #force sub channel id, if you want enable force sub
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002109191807"))
-FORCE_SUB_CHANNEL1 = int(os.environ.get("FORCE_SUB_CHANNEL1", "-1001620367929"))
+FORCE_SUB_CHANNEL = fsub1 if fsub1 else int(os.environ.get("FORCE_SUB_CHANNEL", "-1002109191807"))
+FORCE_SUB_CHANNEL1 = fsub2 if fsub2 else int(os.environ.get("FORCE_SUB_CHANNEL1", "-1001620367929"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
