@@ -11,6 +11,16 @@ import sys
 from datetime import datetime
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL
+from database.database import get_all_channels
+
+#async
+channels = get_all_channels()
+fsub1, fsub2=None, None
+if len(channels)==2:
+    fsub1 = channels[0]
+    fsub2 = channels[1]
+if len(channels)==1:
+    fsub1 = channels[0]
 
 class Bot(Client):
     def __init__(self):
