@@ -116,7 +116,7 @@ async def add_forcesub(client: Client, message: Message):
     
     await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<code><blockquote>{" ".join(fsubs)}</blockquote></code>')
 
-@Bot.on_message(filters.command('fsub_chnls') & filters.private & filters.user(OWNER_ID))
+@Bot.on_message(filters.command('fsub_chnl_ids') & filters.private & filters.user(OWNER_ID))
 async def get_forcesub(client: Client, message: Message):
     channels = await get_all_channels()
     
@@ -125,7 +125,7 @@ async def get_forcesub(client: Client, message: Message):
     else:
         channel_list = "❌ No force-sub channels found."
     
-    await message.reply(f"<b><u>📢 FORCE-SUB CHANNEL IDs:</u></b>\n<blockquote>{channel_list}</blockquote>")
+    await message.reply(f"<b><u>📢 FORCE-SUB CHANNEL IDs:</u></b>\n\n<blockquote>{channel_list}</blockquote>")
 
 @Bot.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
 async def delete_all_forcesub(client: Client, message: Message):
