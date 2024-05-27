@@ -10,7 +10,7 @@ from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL
+from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
 from database.database import get_all_channels
 
 async def fetch_fsub():
@@ -103,6 +103,7 @@ class Bot(Client):
         await web.TCPSite(app, bind_address, PORT).start()
 
         s_msg = await self.send_message(chat_id = LOG_CHNL, text = f"<b>🤖 <a href='t.me/{self.username}'>Bot</a> Restarted...</b>")
+        o_msg = await self.send_message(OWNER_ID, text = f"<b><blockquote>🤖 Bot Restarted succesfully...✅</blockquote></b>")
         await asyncio.sleep(30)
         await s_msg.delete()
 
