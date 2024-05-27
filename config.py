@@ -3,7 +3,7 @@
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-from database.database import database
+from database.database import get_all_channels
 
 channels = await get_all_channels()
 fsub1, fsub2=None, None
