@@ -16,7 +16,8 @@ from database.database import add_user, del_user, full_userbase, present_user, a
 import subprocess
 import sys
 
-async def restart_bot():
+@Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
+async def restart_bot(client: Client, message: Message):
     print("Restarting bot...")
     # Optionally, you can add cleanup tasks here
     subprocess.Popen([sys.executable, "main.py"])  # Adjust this if your start file is named differently
@@ -61,7 +62,7 @@ async def add_forcesub(client: Client, message: Message):
         check=None
     if check==0:
         await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<blockquote><code>{" ".join(fsubs)}</code></blockquote>')
-        await restart_bot()
+        #await restart_bot()
     else:
         await message.reply("<b>INVALID USE OF COMMAND:</b>\n"
                             f"<blockquote><b>➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)</b></blockquote>\n{fsubs}")
