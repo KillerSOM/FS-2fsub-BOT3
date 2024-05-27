@@ -85,23 +85,34 @@ async def get_forcesub(client: Client, message: Message):
         fsub = '<blockquote>DEFAULT</blockquote>'
         
     await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")"""
+
+
 @Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
 async def add_forcesub(client: Client, message: Message):
+    check=0
     channel_ids = await get_all_channels()
     fsubs = message.text.split()[1:]
     
-    if len(fsubs) > 2:
-        await message.reply("You can only add up to two channels at a time.")
+    #if not (len(fsubs)==1 and fsubs[0].isdigit() and fsub[0]=='0'):
+    if len(fsubs) > 2 or len(fsub) < 2:
+        await message.reply("<b>You need to add 2 Channel ID at a time</b>")
         return
     
     for id in fsubs:
-        if id.startswith('-') and id[1:].isdigit():
-            await add_channel(int(id))
-        elif id == '0':
-            await add_channel(0)
+        if id.startswith('-') and id[1:].isdigit() and len(id)==14:
+            check+=1
+        #elif id == '0':
+            #check+=2
         else:
-            await message.reply("Invalid channel ID format.")
+            await message.reply("<b>Invalid channel ID format.</b>")
             return
+    
+    if check==2:
+        if len(channel_ids)>0:
+            for id in channel_ids:
+                await del_channel(id)
+        for id in fsubs:
+            await add_channel(int(id))
     
     await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<code><blockquote>{" ".join(fsubs)}</blockquote></code>')
 
@@ -275,7 +286,6 @@ async def check_force_sub(client: Client, message: Message):
         FORCE_SUB_CHANNEL= channels[0]
         FORCE_SUB_CHANNEL1= channels[1]
         
-    ch1, ch_n1, ch_lnk1, ch2, ch_n2, ch_lnk2= '', '', '', '', '', ''
     if not FORCE_SUB_CHANNEL==0:
         ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
         ch_n1 = ch1.title
