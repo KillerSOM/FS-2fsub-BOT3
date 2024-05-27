@@ -51,10 +51,10 @@ async def add_forcesub(client: Client, message: Message):
     else:
         check=None
     if check:
-        await message.reply(f'**Force-Sub Channel Added ✅**\n<blockquote>`{" ".join(fsubs)}`</blockquote>')
+        await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<blockquote><code>{" ".join(fsubs)}</code></blockquote>')
     else:
-        await message.reply(f"**INVALID USE OF COMMAND:**\n"
-                            "<blockquote>**➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)**</blockquote>")
+        await message.reply("<b>INVALID USE OF COMMAND:</b>\n"
+                            f"<blockquote><b>➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)</b></blockquote>\n{fsubs}")
 
 
 @Bot.on_message(filters.command('fsub_chnls') & filters.private & filters.user(OWNER_ID))
