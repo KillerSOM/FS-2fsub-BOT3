@@ -40,7 +40,7 @@ async def channel_exist(channel_id: int):
     return bool(found)
     
 async def add_channel(channel_id: int):
-    if not await channel_exist(channel_id):
+    if not await channel_exist(channel_id) or channel_id==0:
         channel_data.insert_one({'_id': channel_id})
         return
 
