@@ -35,9 +35,14 @@ async def del_user(user_id: int):
     return
 
 # New channel functions
+async def channel_exist(channel_id: int):
+    found = channel_data.find_one({'_id': channel_id})
+    return bool(found)
+    
 async def add_channel(channel_id: int):
-    channel_data.insert_one({'_id': channel_id})
-    return
+    if not await channel_exist(channel_id):
+        channel_data.insert_one({'_id': channel_id})
+        return
 
 async def del_channel(channel_id: int):
     channel_data.delete_one({'_id': channel_id})
