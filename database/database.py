@@ -10,9 +10,8 @@ from config import DB_URI, DB_NAME
 dbclient = pymongo.MongoClient(DB_URI)
 database = dbclient[DB_NAME]
 
-
 user_data = database['users']
-
+channel_data = database['channels']
 
 
 async def present_user(user_id : int):
@@ -34,3 +33,17 @@ async def full_userbase():
 async def del_user(user_id: int):
     user_data.delete_one({'_id': user_id})
     return
+
+# New channel functions
+async def add_channel(channel_id: int):
+    channel_data.insert_one({'_id': channel_id})
+    return
+
+async def del_channel(channel_id: int):
+    channel_data.delete_one({'_id': channel_id})
+    return
+
+async def get_all_channels():
+    channel_docs = channel_data.find()
+    channel_ids = [doc['_id'] for doc in channel_docs]
+    return channel_ids
