@@ -34,13 +34,13 @@ async def add_forcesub(client: Client, message: Message):
     if len(fsubs)==2 or len(fsubs)==1:
         for id in fsubs:
             if id[0]=='-' and len(id)==14 and id.removeprefix('-').isdigit():
-                if loop=1:
+                if loop==1:
                     await add_channel(int(id))
                     break
                 else:
                    await add_channel(int(id))
             elif len(id)==1 and id[0]=='0':
-                if loop=1:
+                if loop==1:
                     await add_channel(0)
                     break
                 else:
