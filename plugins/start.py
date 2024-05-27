@@ -232,23 +232,22 @@ async def check_force_sub(client: Client, message: Message):
         ch_lnk2 = f"https://t.me/{client.username}" 
         
 
-        reply_markup = InlineKeyboardMarkup(
+    reply_markup = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(ch_n1, url=ch_lnk1),
          ],
                 [ InlineKeyboardButton(ch_n2, url=ch_lnk2)]#, InlineKeyboardButton("⛔️ Close", callback_data = "close")]
-         ])
+    ])
          
-        await message.reply_video(
+    await message.reply_video(
             video = GIF,
             caption = "<b>CURRENT FORCE-SUB CHANNELS :\n\n<blockquote>Click below buttons to Join</blockquote></b>",
             reply_markup = reply_markup,
             #parse_mode='HTML'#
             #quote = True
-        )
-
-        return
+    )
+    return
 
 
 @Bot.on_message(filters.command('channel') & filters.private)
