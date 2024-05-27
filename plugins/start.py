@@ -1,8 +1,5 @@
 #(©)CodeXBotz
 
-
-
-
 import os
 import asyncio
 from pyrogram import Client, filters
@@ -15,7 +12,7 @@ from datetime import datetime
 from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID, CHNL_MSG, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
-from database.database import add_user, del_user, full_userbase, present_user
+from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
 
 ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 GIF = "https://graph.org//file/22abe0fc7ddfd5fadb37e.mp4"
@@ -23,6 +20,57 @@ FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 HELP = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 
+@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+async def add_forcesub(client: Client, message: Message):
+    check, loop=0, 0
+    channels = await get_all_channels()
+    if len(channels)==2:
+        await del_channel(channels[0])
+        await del_channel(channels[0])
+    if len(channels)==1:
+        loop=1
+        
+    fsubs = message.text.removeprefix('/add_fsub').strip().split()
+    if len(fsubs)==2 or len(fsubs)==1:
+        for id in fsubs:
+            if id[0]=='-' and len(id)==14 and id.removeprefix('-').isdigit():
+                if loop=1:
+                    await add_channel(int(id))
+                    break
+                else:
+                   await add_channel(int(id))
+            elif len(id)==1 and id[0]=='0':
+                if loop=1:
+                    await add_channel(0)
+                    break
+                else:
+                    await add_channel(0)
+            else:
+                check=None
+                break
+    else:
+        check=None
+    if check:
+        await message.reply(f'**Force-Sub Channel Added ✅**\n<blockquote>`{" ".join(fsubs)}`</blockquote>')
+    else:
+        await message.reply(f"**INVALID USE OF COMMAND:**\n"
+                            "<blockquote>**➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)**</blockquote>")
+
+
+@Bot.on_message(filters.command('fsub_chnls') & filters.private & filters.user(OWNER_ID))
+async def get_forcesub(client: Client, message: Message):
+    fsub=''
+    channels = await get_all_channels()
+    if len(channels)==2:
+        fsub= f'<blockquote><code>{channels[0]}</code></blockquote>\n<blockquote><code>{channels[1]}</code></blockquote>'
+    elif len(channels)==1:
+        fsub = f'<blockquote><code>{channels[0]}</code></blockquote>'
+    else:
+        fsub = '<blockquote>DEFAULT</blockquote>'
+        
+    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")
+    
+    
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
     #ui = message.from_user.id
@@ -166,18 +214,30 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
+    ch1, ch_n1, ch_lnk1, ch2, ch_n2, ch_lnk2= '', '', '', '', '', ''
+    if not FORCE_SUB_CHANNEL==0:
         ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
         ch_n1 = ch1.title
+        ch_lnk1 = client.invitelink
+    else:
+        ch_n1 = "None ⛔️"
+        ch_lnk1 = f"https://t.me/{client.username}" 
 
+    if not FORCE_SUB_CHANNEL1==0:
         ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
         ch_n2 = ch2.title
+        ch_lnk2 = client.invitelink2
+    else:
+        ch_n2 = "None ⛔️"
+        ch_lnk2 = f"https://t.me/{client.username}" 
+        
 
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(ch_n1, url= client.invitelink),
+                    InlineKeyboardButton(ch_n1, url=ch_lnk1),
          ],
-                [ InlineKeyboardButton(ch_n2, url= client.invitelink2)]#, InlineKeyboardButton("⛔️ Close", callback_data = "close")]
+                [ InlineKeyboardButton(ch_n2, url=ch_lnk2)]#, InlineKeyboardButton("⛔️ Close", callback_data = "close")]
          ])
          
         await message.reply_video(
