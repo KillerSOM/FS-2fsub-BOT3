@@ -270,7 +270,11 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+    channels = await get_all_channels()
+    if len(channels)>=2:
+        FORCE_SUB_CHANNEL= channels[0]
+        FORCE_SUB_CHANNEL1= channels[1]
+        
     ch1, ch_n1, ch_lnk1, ch2, ch_n2, ch_lnk2= '', '', '', '', '', ''
     if not FORCE_SUB_CHANNEL==0:
         ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
