@@ -31,7 +31,7 @@ FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 HELP = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 
-@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+"""@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
 async def add_forcesub(client: Client, message: Message):
     check, loop=0, 0
     channels = await get_all_channels()
@@ -80,7 +80,37 @@ async def get_forcesub(client: Client, message: Message):
     else:
         fsub = '<blockquote>DEFAULT</blockquote>'
         
-    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")
+    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")"""
+@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+async def add_forcesub(client: Client, message: Message):
+    channel_ids = await get_all_channels()
+    fsubs = message.text.split()[1:]
+    
+    if len(fsubs) > 2:
+        await message.reply("You can only add up to two channels at a time.")
+        return
+    
+    for id in fsubs:
+        if id.startswith('-') and id[1:].isdigit():
+            await add_channel(int(id))
+        elif id == '0':
+            await add_channel(0)
+        else:
+            await message.reply("Invalid channel ID format.")
+            return
+    
+    await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<code>{" ".join(fsubs)}</code>')
+
+@Bot.on_message(filters.command('fsub_chnls') & filters.private & filters.user(OWNER_ID))
+async def get_forcesub(client: Client, message: Message):
+    channels = await get_all_channels()
+    
+    if channels:
+        channel_list = "\n".join([f"<code>{channel}</code>" for channel in channels])
+    else:
+        channel_list = "No force-sub channels found."
+    
+    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</u></b>\n{channel_list}")
     
     
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
