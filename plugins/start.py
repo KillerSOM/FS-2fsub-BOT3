@@ -13,6 +13,15 @@ from bot import Bot
 from config import ADMINS, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, HELP_TEXT, START_PIC, LOG_CHNL, OWNER_ID, CHNL_MSG, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from helper_func import subscribed, encode, decode, get_messages, get_readable_time
 from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
+import subprocess
+import sys
+
+async def restart_bot():
+    print("Restarting bot...")
+    # Optionally, you can add cleanup tasks here
+    subprocess.Popen([sys.executable, "main.py"])  # Adjust this if your start file is named differently
+    sys.exit()
+
 
 ONGOING = "https://graph.org//file/b07335e8e0e5353cbc784.jpg"
 GIF = "https://graph.org//file/22abe0fc7ddfd5fadb37e.mp4"
@@ -52,6 +61,7 @@ async def add_forcesub(client: Client, message: Message):
         check=None
     if check==0:
         await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<blockquote><code>{" ".join(fsubs)}</code></blockquote>')
+        await restart_bot()
     else:
         await message.reply("<b>INVALID USE OF COMMAND:</b>\n"
                             f"<blockquote><b>➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)</b></blockquote>\n{fsubs}")
