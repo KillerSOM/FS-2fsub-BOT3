@@ -94,7 +94,7 @@ async def add_forcesub(client: Client, message: Message):
     fsubs = message.text.split()[1:]
     
     #if not (len(fsubs)==1 and fsubs[0].isdigit() and fsub[0]=='0'):
-    if len(fsubs) > 2 or len(fsub) < 2:
+    if len(fsubs) > 2 or len(fsubs) < 2:
         await message.reply("<b>You need to add 2 Channel ID at a time</b>")
         return
     
