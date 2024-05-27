@@ -19,7 +19,7 @@ import sys
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
 async def restart_bot(client: Client, message: Message):
     print("Restarting bot...")
-    msg = await client.send_message(OWNER_ID, text="<b><i><blockquote>Bot Restarting...</blockquote></i></b>")
+    msg = await client.send_message(OWNER_ID, text="<b><i><blockquote>⚠️ Bot Stopped, And going to Restart...</blockquote></i></b>")
     await asyncio.sleep(2)  # Wait for 2 seconds before restarting
     await msg.delete()
     args = [sys.executable, "main.py"]  # Adjust this if your start file is named differently
