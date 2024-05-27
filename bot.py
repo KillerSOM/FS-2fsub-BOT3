@@ -22,6 +22,9 @@ if len(channels)==2:
 if len(channels)==1:
     fsub1 = channels[0]
 
+FORCE_SUB_CHANNEL = fsub1 if fsub1 else FORCE_SUB_CHANNEL 
+FORCE_SUB_CHANNEL1 = fsub2 if fsub2 else FORCE_SUB_CHANNEL1
+
 class Bot(Client):
     def __init__(self):
         super().__init__(
