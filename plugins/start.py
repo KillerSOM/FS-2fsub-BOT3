@@ -19,6 +19,7 @@ import sys
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
 async def restart_bot(client: Client, message: Message):
     print("Restarting bot...")
+    await client.send_message(OWNER_ID, text="<b><i>Bot Restarting...</i></b>")
     # Optionally, you can add cleanup tasks here
     subprocess.Popen([sys.executable, "main.py"])  # Adjust this if your start file is named differently
     sys.exit()
@@ -34,16 +35,16 @@ HELP = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 async def add_forcesub(client: Client, message: Message):
     check, loop=0, 0
     channels = await get_all_channels()
-    if len(channels)==2:
-        await del_channel(channels[0])
-        await del_channel(channels[0])
-    if len(channels)==1:
-        loop=1
         
     fsubs = message.text.removeprefix('/add_fsub').strip().split()
     if len(fsubs)==2 or len(fsubs)==1:
+        if len(channels)==1:
+            loop=1
         for id in fsubs:
             if id[0]=='-' and len(id)==14 and id.removeprefix('-').isdigit():
+                if len(channels)==2 and len(fsubs)==2:
+                    await del_channel(channels[0])
+                    await del_channel(channels[1])
                 if loop==1:
                     await add_channel(int(id))
                     break
