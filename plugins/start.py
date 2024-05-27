@@ -281,22 +281,16 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    channels = await get_all_channels()
-    if len(channels)>=2:
-        FORCE_SUB_CHANNEL= channels[0]
-        FORCE_SUB_CHANNEL1= channels[1]
-        
+    
     if not FORCE_SUB_CHANNEL==0:
-        ch1 = await client.get_chat(FORCE_SUB_CHANNEL)
-        ch_n1 = ch1.title
+        ch_n1 = client.name
         ch_lnk1 = client.invitelink
     else:
         ch_n1 = "None ⛔️"
         ch_lnk1 = f"https://t.me/{client.username}" 
 
     if not FORCE_SUB_CHANNEL1==0:
-        ch2 = await client.get_chat(FORCE_SUB_CHANNEL1)
-        ch_n2 = ch2.title
+        ch_n2 = client.name2
         ch_lnk2 = client.invitelink2
     else:
         ch_n2 = "None ⛔️"
