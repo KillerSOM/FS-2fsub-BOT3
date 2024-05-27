@@ -50,7 +50,7 @@ async def add_forcesub(client: Client, message: Message):
                 break
     else:
         check=None
-    if check:
+    if check==0:
         await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<blockquote><code>{" ".join(fsubs)}</code></blockquote>')
     else:
         await message.reply("<b>INVALID USE OF COMMAND:</b>\n"
