@@ -123,9 +123,9 @@ async def get_forcesub(client: Client, message: Message):
     if channels:
         channel_list = "\n".join([f"<code>{channel}</code>" for channel in channels])
     else:
-        channel_list = "No force-sub channels found."
+        channel_list = "❌ No force-sub channels found."
     
-    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</u></b>\n<blockquote>{channel_list}</blockquote>")
+    await message.reply(f"<b><u>📢 FORCE-SUB CHANNEL IDs:</u></b>\n<blockquote>{channel_list}</blockquote>")
 
 @Bot.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
 async def delete_all_forcesub(client: Client, message: Message):
@@ -133,9 +133,9 @@ async def delete_all_forcesub(client: Client, message: Message):
     if channels:
         for id in channels:
             await del_channel(id)
-        await message.reply("<b><blockquote>All Available Channel ID are Deleted...</blockquote></b>")
+        await message.reply("<b><blockquote>⛔️ All Available Channel ID are Deleted...</blockquote></b>")
     else:
-        await message.reply("<b><blockquote>No Channel ID Available to Delete !</blockquote></b>")
+        await message.reply("<b><blockquote>⁉️ No Channel ID Available to Delete !</blockquote></b>")
     
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
