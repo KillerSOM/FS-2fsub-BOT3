@@ -4,16 +4,7 @@ import asyncio
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-from database.database import get_all_channels
 
-#async
-channels = get_all_channels()
-fsub1, fsub2=None, None
-if len(channels)==2:
-    fsub1 = channels[0]
-    fsub2 = channels[1]
-if len(channels)==1:
-    fsub1 = channels[0]
 
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6750822148:AAHkqRrXxVRklrJKgasQAlp8-M4ZTygw5Io")
