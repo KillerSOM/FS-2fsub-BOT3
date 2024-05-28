@@ -45,7 +45,7 @@ class Bot(Client):
         self.uptime = datetime.now()
 
         
-        channels = await get_all_channels
+        channels = await get_all_channels()
         fsub1, fsub2 = None, None
 
         if len(channels)==2:
