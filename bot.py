@@ -44,11 +44,11 @@ class Bot(Client):
         usr_bot_me = await self.get_me()
         self.uptime = datetime.now()
         
-        global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+        #global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
         fsub1, fsub2 = await fetch_fsub()
         
-        FORCE_SUB_CHANNEL = fsub1 if fsub1 else FORCE_SUB_CHANNEL 
-        FORCE_SUB_CHANNEL1 = fsub2 if fsub2 else FORCE_SUB_CHANNEL1
+        FORCE_SUB_CHANNEL = FORCE_SUB_CHANNEL if fsub1 is None else fsub1
+        FORCE_SUB_CHANNEL1 = FORCE_SUB_CHANNEL1 if fsub2 is None else fsub2 
 
         if FORCE_SUB_CHANNEL:
             try:
