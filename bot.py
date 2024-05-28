@@ -19,8 +19,9 @@ async def fetch_fsub():
     if len(channels)==2:
         fsub1 = channels[0]
         fsub2 = channels[1]
-    if len(channels)==1:
+    if len(channels)==1 and channels[0]==0:
         fsub1 = channels[0]
+        fsub2 = channels[0]
     return fsub1, fsub2
 
 
