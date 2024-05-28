@@ -93,16 +93,16 @@ async def add_forcesub(client: Client, message: Message):
     channel_ids = await get_all_channels()
     fsubs = message.text.split()[1:]
     
-    #if not (len(fsubs)==1 and fsubs[0].isdigit() and fsub[0]=='0'):
-    if len(fsubs) > 2 or len(fsubs) < 2:
-        await message.reply("<b>You need to add 2 Channel ID at a time</b>")
-        return
+    if not (len(fsubs)==1 and fsubs[0].isdigit() and fsub[0]=='0'):
+        if len(fsubs) > 2 or len(fsubs) < 2:
+            await message.reply("<b>You need to add 2 Channel ID at a time</b>")
+            return
     
     for id in fsubs:
         if id.startswith('-') and id[1:].isdigit() and len(id)==14:
             check+=1
-        #elif id == '0':
-            #check+=2
+        elif id == '0':
+            check+=2
         else:
             await message.reply("<b>Invalid channel ID format.</b>")
             return
