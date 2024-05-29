@@ -11,13 +11,7 @@ from pyrogram.errors import FloodWait
 #from bot import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from database.database import get_all_channels
 
-channels = await get_all_channels()
-FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
-#fsub1, fsub2 = None, None
-if len(channels)==2:
-    FORCE_SUB_CHANNEL = channels[0]
-    FORCE_SUB_CHANNEL1 = channels[1]
-        
+
 async def is_subscribed(filter, client, update):
     channels = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
