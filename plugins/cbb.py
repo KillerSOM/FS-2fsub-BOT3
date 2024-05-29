@@ -1,8 +1,8 @@
 #(©)Codexbotz
 
-from bot import Bot
+from bot import Bot, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from config import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHNL_MSG, CHNL_MSG1
+from config import FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHNL_MSG, CHNL_MSG1
 from pyrogram import __version__
 
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
