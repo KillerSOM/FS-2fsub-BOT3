@@ -15,6 +15,14 @@ from helper_func import subscribed, encode, decode, get_messages, get_readable_t
 from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
 import subprocess
 import sys
+from database.database import get_all_channels
+
+channels = await get_all_channels()
+FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+#fsub1, fsub2 = None, None
+if len(channels)==2:
+    FORCE_SUB_CHANNEL = channels[0]
+    FORCE_SUB_CHANNEL1 = channels[1]
 
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
 async def restart_bot(client: Client, message: Message):
