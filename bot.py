@@ -13,7 +13,7 @@ from datetime import datetime
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
 from database.database import get_all_channels
 
-FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+#FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
 
 """async def fetch_fsub():
     channels = await get_all_channels()
@@ -48,14 +48,15 @@ class Bot(Client):
 
         
         channels = await get_all_channels()
-        fsub1, fsub2 = None, None
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+        #fsub1, fsub2 = None, None
 
         if len(channels)==2:
-           fsub1 = channels[0]
-           fsub2 = channels[1]
+           FORCE_SUB_CHANNEL = channels[0]
+           FORCE_SUB_CHANNEL1 = channels[1]
 
-        global FORCE_SUB_CHANNEL;  FORCE_SUB_CHANNEL = FORCE_SUB_CHANNEL if fsub1 is None else fsub1
-        global FORCE_SUB_CHANNEL1; FORCE_SUB_CHANNEL1 = FORCE_SUB_CHANNEL1 if fsub2 is None else fsub2 
+        #global FORCE_SUB_CHANNEL;  FORCE_SUB_CHANNEL = FORCE_SUB_CHANNEL if fsub1 is None else fsub1
+        #global FORCE_SUB_CHANNEL1; FORCE_SUB_CHANNEL1 = FORCE_SUB_CHANNEL1 if fsub2 is None else fsub2 
 
         if FORCE_SUB_CHANNEL:
             try:
