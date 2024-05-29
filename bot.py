@@ -10,8 +10,10 @@ from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
+from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
 from database.database import get_all_channels
+
+FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
 
 """async def fetch_fsub():
     channels = await get_all_channels()
