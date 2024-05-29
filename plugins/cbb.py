@@ -1,9 +1,17 @@
 #(©)Codexbotz
 
-from bot import Bot, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+from bot import Bot#, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from config import FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHNL_MSG, CHNL_MSG1
 from pyrogram import __version__
+from database.database import get_all_channels
+
+channels = await get_all_channels()
+FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+#fsub1, fsub2 = None, None
+if len(channels)==2:
+    FORCE_SUB_CHANNEL = channels[0]
+    FORCE_SUB_CHANNEL1 = channels[1]
 
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 SOLO = "https://graph.org//file/e50b4e50421ddaaab858f.jpg"
