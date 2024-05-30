@@ -62,3 +62,10 @@ async def get_forcesub(client: Client, message: Message):
         channel_list = "❌ No force-sub channels found."
 
     await message.reply(f"<b><u>📢 FORCE-SUB CHANNEL IDs:</u></b>\n\n<blockquote>{channel_list}</blockquote>")
+
+
+# At the end of force_sub.py
+if __name__ == "__main__":
+    app = Client("my_bot")
+    app.run()
+
