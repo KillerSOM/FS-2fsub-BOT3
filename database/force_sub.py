@@ -1,14 +1,14 @@
 #telegram user_id: @Shidoteshika1
 
-#from bot import Bot
+from bot import Bot
 from config import OWNER_ID
 from pyrogram import Client, filters
 from database.database import add_channel, del_channel, get_all_channels
 FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
 
 
-@Client.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
-async def add_forcesub(client, message):
+@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+async def add_forcesub(client:Client, message:Message):
     check=0
     channel_ids = await get_all_channels()
     fsubs = message.text.split()[1:]
@@ -70,8 +70,8 @@ async def add_forcesub(client, message):
 
 
 
-@Client.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
-async def delete_all_forcesub(client, message):
+@Bot.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
+async def delete_all_forcesub(client:Client, message:Message):
     channels = await get_all_channels()
     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
   
@@ -86,8 +86,8 @@ async def delete_all_forcesub(client, message):
 
 
 
-@Client.on_message(filters.command('fsub_chnl_ids') & filters.private & filters.user(OWNER_ID))
-async def get_forcesub(client, message):
+@Bot.on_message(filters.command('fsub_chnl_ids') & filters.private & filters.user(OWNER_ID))
+async def get_forcesub(client:Client, message: Message):
     channels = await get_all_channels()
     
     if channels:
