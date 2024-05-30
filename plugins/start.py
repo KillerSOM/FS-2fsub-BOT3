@@ -141,7 +141,7 @@ async def delete_all_forcesub(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
-    con = await message.reply("<blockquote><b>𝘊𝘰𝘯𝘯𝘦𝘤𝘵𝘪𝘯𝘨....<b></blockquote>")
+    con = await message.reply("<blockquote><b>𝘊𝘰𝘯𝘯𝘦𝘤𝘵𝘪𝘯𝘨....</b></blockquote>")
     #ui = message.from_user.id
     #un = message.from_user.username
     #um = message.from_user.mention
@@ -308,7 +308,7 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    temp = await message.reply("<blockquote><b><i>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</i><b></blockquote>")
+    temp = await message.reply("<blockquote><b>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</b></blockquote>")
     channels_id = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
     if channels_id:
@@ -438,7 +438,7 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    temp = await message.reply("<blockquote><b><i>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</i><b></blockquote>")
+    temp = await message.reply("<blockquote><b>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</b></blockquote>")
     channels_id = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
     if channels_id:
