@@ -1,4 +1,4 @@
-my bot.py code: #(©)Codexbotz
+#my bot.py code: #(©)Codexbotz
 
 from aiohttp import web
 from plugins import web_server
