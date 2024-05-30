@@ -40,7 +40,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_PIC = os.environ.get("START_PIC", "https://telegra.ph/file/d48e6d30e443dcae118b8.jpg")
 
 #start message
-START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\n<blockquote>𝘪 𝘢𝘮 𝘢 𝘧𝘪𝘭𝘦 𝘴𝘵𝘰𝘳𝘦 𝘣𝘰𝘵.\n𝘖𝘯𝘭𝘺 𝘧𝘰𝘳 𝘈𝘯𝘪𝘮𝘦 𝘳𝘦𝘭𝘢𝘵𝘦𝘥 𝘴𝘵𝘶𝘧𝘧𝘴</blockquote>\n<blockquote>🧑‍💻 Developer: @Shidoteshika1</blockquote></b>")
+START_MSG = os.environ.get("START_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\n<blockquote>𝘪 𝘢𝘮 𝘢 𝘧𝘪𝘭𝘦 𝘴𝘵𝘰𝘳𝘦 𝘣𝘰𝘵.\n𝘖𝘯𝘭𝘺 𝘧𝘰𝘳 𝘈𝘯𝘪𝘮𝘦 𝘳𝘦𝘭𝘢𝘵𝘦𝘥 𝘴𝘵𝘶𝘧𝘧𝘴</blockquote></b>")#\n<blockquote>🧑‍💻 Developer: @Shidoteshika1</blockquote>
 
 #channel start message
 CHNL_MSG = os.environ.get("CHNL_MSG", "<b>🍁 Hᴇʏ, {mention} ~\n\nWellcome to this page. Here you will redirect to my connected channels.\n\nClick Below buttons for redirect My Channels.</b>")
