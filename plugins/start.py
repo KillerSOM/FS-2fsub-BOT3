@@ -141,6 +141,7 @@ async def delete_all_forcesub(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
+    con = await message.reply("<blockquote><b>𝘊𝘰𝘯𝘯𝘦𝘤𝘵𝘪𝘯𝘨....<b></blockquote>")
     #ui = message.from_user.id
     #un = message.from_user.username
     #um = message.from_user.mention
@@ -189,7 +190,7 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ....</i></b>")
+        temp_msg = await con.edit_text("<blockquote><b><i>Lᴏᴀᴅɪɴɢ....</i></b><blockquote>")
         try:
             messages = await get_messages(client, ids)
             
@@ -238,7 +239,7 @@ async def start_command(client: Client, message: Message):
         #await asyncio.sleep(0.1)
         #loading4 = await loading3.edit("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▰ ▰ ▰")
         #await asyncio.sleep(0.1)
-        await message.reply(
+        await con.edit_text(
             #photo= ONGOING,
             text = START_MSG.format(
                 first = message.from_user.first_name,
