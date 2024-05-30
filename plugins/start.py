@@ -285,25 +285,40 @@ async def help(client: Client, message: Message):
 async def check_force_sub(client: Client, message: Message):
     channels = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
-#fsub1, fsub2 = None, None
+
     if len(channels)==2:
         FORCE_SUB_CHANNEL = channels[0]
         FORCE_SUB_CHANNEL1 = channels[1]
 
-    
-    if not FORCE_SUB_CHANNEL==0:
-        ch_n1 = client.name
-        ch_lnk1 = client.invitelink
-    else:
-        ch_n1 = "None ⛔️"
-        ch_lnk1 = f"https://t.me/{client.username}" 
+    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
+        try:
+            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            cname = (await client.get_chat(FORCE_SUB_CHANNEL)).title
 
-    if not FORCE_SUB_CHANNEL1==0:
-        ch_n2 = client.name2
-        ch_lnk2 = client.invitelink2
+            link2 = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            cname2 = (await client.get_chat(FORCE_SUB_CHANNEL)).title
+                
+            if not link:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                
+            if not link2:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
+                link = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+
+            ch_n1 = cname
+            ch_lnk1 = link
+            ch_n2 = cname2
+            ch_lnk2 = clink2
+                
+        except:
+            print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+            return    
     else:
-        ch_n2 = "None ⛔️"
-        ch_lnk2 = f"https://t.me/{client.username}" 
+        ch_n1 = "No Force-Sub Channel(1) ⛔️"
+        ch_lnk1 = f"https://t.me/{client.username}" 
+        ch_n2 = "No Force-Sub Channel(2) ⛔️"
+        ch_lnk2 = f"https://t.me/{client.username}"         
         
 
     reply_markup = InlineKeyboardMarkup(
@@ -401,25 +416,35 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 async def not_joined(client: Client, message: Message):
     channels = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
-#fsub1, fsub2 = None, None
+
     if len(channels)==2:
         FORCE_SUB_CHANNEL = channels[0]
         FORCE_SUB_CHANNEL1 = channels[1]
 
-    
-    #await message.text.forward(chat_id=CHANNEL_ID)
-    #forwarded_message = await bot.send_message(CHANNEL_ID, message.text)
-    # Add a forward tag to the forwarded message
-    #await client.send_message(LOG_CHNL, text=f'<b>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: None-Subscriber 🚫</b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴜsᴇʀ ɴᴀᴍᴇ: @{un}\nᴍᴇɴᴛɪᴏɴ: {um}</b>\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nBOT:@{client.username}')
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
-        ui = message.from_user.id
-        un = message.from_user.username
-        um = message.from_user.mention
-        await client.send_message(LOG_CHNL, text=f'<b><blockquote><s>𝐒𝐓𝐀𝐑𝐓 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃 𝐁𝐘:</s></blockquote></b>\n<b>ɪᴅ:</b> <code>{ui}</code>\n<b>ᴍᴇɴᴛɪᴏɴ: {um}\nᴜsᴇʀ ɴᴀᴍᴇ: @{un}</b>\n<b>ᴜsᴇʀ ᴛʏᴘᴇ: None-Subscriber 🚫</b>', reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Bᴏᴛ-3", url = f"https://t.me/{client.username}"),InlineKeyboardButton("⛔ Cʟᴏsᴇ", callback_data = "close")]]))
+        try:
+            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            link2 = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                
+            if not link:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                
+            if not link2:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
+                link = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+    
+            client.clink = link
+            client.clink2 = link2
+            
+        except:
+            print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+            return
+            
         buttons = [
             [
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.invitelink),
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.invitelink2)    
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.clink),
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.clink2)    
             ]
         ]
         try:
