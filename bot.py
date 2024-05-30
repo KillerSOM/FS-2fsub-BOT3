@@ -12,7 +12,7 @@ from datetime import datetime
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
 #from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
-
+import force_sub
 
 class Bot(Client):
     def __init__(self):
