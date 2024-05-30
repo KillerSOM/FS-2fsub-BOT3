@@ -228,7 +228,7 @@ async def start_command(client: Client, message: Message):
             [
                 [
                     #InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
-                    InlineKeyboardButton('⚡ Cʜᴀɴɴᴇʟs', callback_data = 'chnls'),
+                    #InlineKeyboardButton('⚡ Cʜᴀɴɴᴇʟs', callback_data = 'chnls'),
                     InlineKeyboardButton("🤖 Aʙᴏᴜᴛ", callback_data = "alt")
                 ]])
         #loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱")
@@ -295,8 +295,8 @@ async def check_force_sub(client: Client, message: Message):
             link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
             cname = (await client.get_chat(FORCE_SUB_CHANNEL)).title
 
-            link2 = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            cname2 = (await client.get_chat(FORCE_SUB_CHANNEL)).title
+            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+            cname2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).title
                 
             if not link:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
@@ -304,7 +304,7 @@ async def check_force_sub(client: Client, message: Message):
                 
             if not link2:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
 
             ch_n1 = cname
             ch_lnk1 = link
@@ -424,7 +424,7 @@ async def not_joined(client: Client, message: Message):
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
             link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            link2 = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
                 
             if not link:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
