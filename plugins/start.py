@@ -15,7 +15,7 @@ from helper_func import subscribed, encode, decode, get_messages, get_readable_t
 from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
 import subprocess
 import sys
-from plugins.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+from plugins.force_sub import update_fsub, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, CNAME1, CNAME2, CILINK1, CILINK2
 
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
 async def restart_bot(client: Client, message: Message):
@@ -226,8 +226,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🤖 Dev', url = 'https://t.me/Shidoteshika1'),
-                    InlineKeyboardButton('⚡ Cʜᴀɴɴᴇʟs', callback_data = 'chnls'),
+                    InlineKeyboardButton('🤖 Developer', url = 'https://t.me/Shidoteshika1'),
+                    #InlineKeyboardButton('⚡ Cʜᴀɴɴᴇʟs', callback_data = 'chnls'),
                     #InlineKeyboardButton("🤖 Aʙᴏᴜᴛ", callback_data = "alt")
                 ]])
         #loading = await message.reply("<b><i>Lᴏᴀᴅɪɴɢ</i></b> ▱ ▱ ▱")
@@ -307,13 +307,14 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
+    await update_fsub(1)
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
 
-            ch_n1 = client.cname1
-            ch_lnk1 = client.cilink1
-            ch_n2 = client.cname2
-            ch_lnk2 = client.cilink2
+            ch_n1 = CNAME1
+            ch_lnk1 = CILINK1
+            ch_n2 = CNAME2
+            ch_lnk2 = CILINK2
                 
         #except:
             #print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
@@ -418,12 +419,13 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    channels = await get_all_channels()
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+    #channels = await get_all_channels()
+    #FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
 
-    if len(channels)==2:
-        FORCE_SUB_CHANNEL = channels[0]
-        FORCE_SUB_CHANNEL1 = channels[1]
+    #if len(channels)==2:
+        #FORCE_SUB_CHANNEL = channels[0]
+        #FORCE_SUB_CHANNEL1 = channels[1]
+    await update_fsub(1)
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         #try:
@@ -447,8 +449,8 @@ async def not_joined(client: Client, message: Message):
             
         buttons = [
             [
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.cilink1),
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.cilink2)    
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=CILINK1),
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=CILINK2)    
             ]
         ]
         try:
