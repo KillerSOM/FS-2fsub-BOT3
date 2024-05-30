@@ -13,7 +13,7 @@ async def update_fsub(vaule):
         FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2= 0, 0, None, None, None, None
     elif vaule==1:
      channels = await get_all_channels()
-     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, 
+     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
      if len(channels)==2:
             FORCE_SUB_CHANNEL = channels[0]
             FORCE_SUB_CHANNEL1 = channels[1]
