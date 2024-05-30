@@ -9,7 +9,7 @@ from config import FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, ADMINS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 #from bot import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
-from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+from force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 
