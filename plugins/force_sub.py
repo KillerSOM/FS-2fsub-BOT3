@@ -5,8 +5,46 @@ from pyrogram.types import Message
 from config import OWNER_ID
 from pyrogram import Client, filters
 from database.database import add_channel, del_channel, get_all_channels
-FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2= 0, 0, None, None, None, None
 
+async def update_fsub(vaule):
+    if vaule==0:
+        global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2= 0, 0, None, None, None, None
+    elif vaule==1:
+     channels = await get_all_channels()
+     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1, 
+     if len(channels)==2:
+            FORCE_SUB_CHANNEL = channels[0]
+            FORCE_SUB_CHANNEL1 = channels[1]
+     else:
+            FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
+        try:
+            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            cname1 = (await client.get_chat(FORCE_SUB_CHANNEL)).title
+
+            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+            cname2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).title
+                
+            if not link:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                
+            if not link2:
+                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
+                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+                
+            global CNAME1, CNAME2, CILINK1, CILINK2
+            CILINK1 = link
+            CILINK2 = link2
+            CNAME1 = cname1
+            CNAME2 = cname2
+                
+        except:
+            print(f"While(/add_fsub) Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+            return   
+           
 
 @Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
 async def add_forcesub(client:Client, message:Message):
@@ -36,51 +74,21 @@ async def add_forcesub(client:Client, message:Message):
             await add_channel(int(id))
     
     await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<code><blockquote>{" ".join(fsubs)}</blockquote></code>')
-    
-    channels = await get_all_channels()
-    global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
-
-    if len(channels)==2:
-        FORCE_SUB_CHANNEL = channels[0]
-        FORCE_SUB_CHANNEL1 = channels[1]
-
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
-        try:
-            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            cname1 = (await client.get_chat(FORCE_SUB_CHANNEL)).title
-
-            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
-            cname2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).title
-                
-            if not link:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
-                link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                
-            if not link2:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
-
-            client.cilink1 = link
-            client.cilink2 = link2
-            client.cname1 = cname1
-            client.cname2 = cname2
-                
-        except:
-            print(f"While(/add_fsub) Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
-            return
+    await update_fsub(1)
 
 
 
 @Bot.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
 async def delete_all_forcesub(client:Client, message:Message):
     channels = await get_all_channels()
-    global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+    #global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
   
     if channels:
         for id in channels:
             await del_channel(id)
         await message.reply("<b><blockquote>⛔️ All Available Channel ID are Deleted...</blockquote></b>")
-        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+        #FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+        await update_fsub(0)
     else:
         await message.reply("<b><blockquote>⁉️ No Channel ID Available to Delete !</blockquote></b>")
       
