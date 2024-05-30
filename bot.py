@@ -4,8 +4,8 @@ from aiohttp import web
 from plugins import web_server
 
 import asyncio
-import pyromod.listen
-from pyrogram import Client
+from pyrogram import Client, filters
+from pyrogram.types import Message
 from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
@@ -16,18 +16,25 @@ from force_sub import add_forcesub, delete_all_forcesub, get_forcesub
 class Bot(Client):
     def __init__(self, force_sub_channel=None, force_sub_channel1=None):
         super().__init__(
-            name="Bot",
+            "Bot",
             api_hash=API_HASH,
             api_id=APP_ID,
-            plugins={
-                "root": "plugins"
-            },
+            plugins=dict(root="plugins"),
             workers=TG_BOT_WORKERS,
             bot_token=TG_BOT_TOKEN
         )
         self.LOGGER = LOGGER
         self.force_sub_channel = force_sub_channel
         self.force_sub_channel1 = force_sub_channel1
+
+    async def on_connect(self, client, userdata):
+        await client.send_message(chat_id=LOG_CHNL, text=f"<b>🤖 Bot connected to Pyrogram...</b>")
+
+    async def on_disconnect(self, client, userdata):
+        await client.send_message(chat_id=LOG_CHNL, text=f"<b>🤖 Bot disconnected from Pyrogram...</b>")
+
+    async def on_message(self, message: Message):
+        pass
 
     async def start(self):
         await super().start()
@@ -95,10 +102,6 @@ class Bot(Client):
         await asyncio.sleep(30)
         await s_msg.delete()
 
-    async def stop(self, *args):
-        await super().stop()
-        self.LOGGER(__name__).info("Bot stopped.")
-
     def run(self):
-        self.start()
-        self.idle()
+        asyncio.get_event_loop().run_until_complete(self.start())
+        asyncio.get_event_loop().run_forever()
