@@ -1,9 +1,16 @@
+# force_sub.py
+
+from pyrogram import Client, filters
 from pyrogram.types import Message
-from config import OWNER_ID
-from database.database import add_channel, del_channel, get_all_channels
 from bot import Bot
 
-async def add_forcesub(client: Bot, message: Message):
+from config import OWNER_ID
+from database.database import add_channel, del_channel, get_all_channels
+
+FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
+
+@Client.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+async def add_forcesub(client: Client, message: Message):
     check = 0
     channel_ids = await get_all_channels()
     fsubs = message.text.split()[1:]
@@ -32,9 +39,10 @@ async def add_forcesub(client: Bot, message: Message):
         global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
         if len(channels) == 2:
-            bot.FORCE_SUB_CHANNEL, bot.FORCE_SUB_CHANNEL1 = channels
+            FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels
 
-async def delete_all_forcesub(client: Bot, message: Message):
+@Client.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
+async def delete_all_forcesub(client: Client, message: Message):
     channels = await get_all_channels()
     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
@@ -42,11 +50,12 @@ async def delete_all_forcesub(client: Bot, message: Message):
         for id in channels:
             await del_channel(id)
         await message.reply("<b><blockquote>⛔️ All Available Channel IDs are Deleted...</blockquote></b>")
-        bot.FORCE_SUB_CHANNEL, bot.FORCE_SUB_CHANNEL1 = 0, 0
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
     else:
         await message.reply("<b><blockquote>⁉️ No Channel IDs Available to Delete!</blockquote></b>")
 
-async def get_forcesub(client: Bot, message: Message):
+@Client.on_message(filters.command('fsub_chnl_ids') & filters.private & filters.user(OWNER_ID))
+async def get_forcesub(client: Client, message: Message):
     channels = await get_all_channels()
 
     if channels:
