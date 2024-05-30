@@ -462,13 +462,13 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
 
 
 
-@Bot.on_message(filters.document & filters.channel(-1002111861089))
+@Bot.on_message(filters.document & filters.chat(-1002111861089))
 async def handle_document(client: Client, message: Message):
     file_name = message.document.file_name
     new_caption = f'Document received: {file_name}'
     await client.edit_message_caption(chat_id=message.chat.id, message_id=message.message_id, caption=new_caption)
 
-@Bot.on_message(filters.video & filters.channel(-1002111861089))
+@Bot.on_message(filters.video & filters.chat(-1002111861089))
 async def handle_video(client: Client, message: Message):
     video = message.video
     file_name = video.file_name if video.file_name else 'Unnamed video'
