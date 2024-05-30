@@ -1,5 +1,6 @@
 #telegram user_id: @Shidoteshika1
 
+from bot import Bot
 from config import OWNER_ID
 from pyrogram import Client, filters
 from database.database import add_channel, del_channel, get_all_channels
