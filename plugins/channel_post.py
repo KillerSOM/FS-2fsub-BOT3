@@ -9,7 +9,7 @@ from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
 from helper_func import encode
 
-@Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.command(['start','users','broadcast','batch','genlink','stats','help','cmd', 'info', 'channel', 'fsub', 'add_fsub', 'fsub_chnl_ids', 'restart', 'delall_fsub']))
+@Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.command(['start','users','broadcast','batch','genlink','stats','help','cmd', 'info', 'channel', 'fsub', 'add_fsub', 'fsub_chnl_ids', 'restart', 'delall_fsub', 'test']))
 async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Please Wait...!", quote = True)
     try:
