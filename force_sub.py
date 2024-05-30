@@ -1,5 +1,6 @@
 # force_sub.py
 
+from config import TG_BOT_TOKEN, APP_ID, API_HASH
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import OWNER_ID
@@ -66,6 +67,6 @@ async def get_forcesub(client: Client, message: Message):
 
 # At the end of force_sub.py
 if __name__ == "__main__":
-    app = Client("my_bot")
+    app = Client("my_bot", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH)
     app.run()
 
