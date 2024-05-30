@@ -8,12 +8,12 @@ from database.database import add_channel, del_channel, get_all_channels
 FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2= 0, 0, None, None, None, None
 
 async def update_fsub(vaule):
+    global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2
     if vaule==0:
-        global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2
         FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 , CNAME1, CNAME2, CILINK1, CILINK2= 0, 0, None, None, None, None
     elif vaule==1:
      channels = await get_all_channels()
-     global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+     #global FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
      if len(channels)==2:
             FORCE_SUB_CHANNEL = channels[0]
             FORCE_SUB_CHANNEL1 = channels[1]
@@ -35,7 +35,7 @@ async def update_fsub(vaule):
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
                 link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
                 
-            global CNAME1, CNAME2, CILINK1, CILINK2
+            #global CNAME1, CNAME2, CILINK1, CILINK2
             CILINK1 = link
             CILINK2 = link2
             CNAME1 = cname1
