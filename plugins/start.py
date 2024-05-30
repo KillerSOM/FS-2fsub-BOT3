@@ -312,7 +312,7 @@ async def check_force_sub(client: Client, message: Message):
     channels_id = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
     if channels_id:
-        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = Channels_id
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels_id
     
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
@@ -442,7 +442,7 @@ async def not_joined(client: Client, message: Message):
     channels_id = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
     if channels_id:
-        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = Channels_id
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels_id
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
