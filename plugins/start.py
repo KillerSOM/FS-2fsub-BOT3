@@ -15,7 +15,7 @@ from helper_func import subscribed, encode, decode, get_messages, get_readable_t
 from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
 import subprocess
 import sys
-from database.database import get_all_channels
+from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
@@ -89,7 +89,7 @@ async def get_forcesub(client: Client, message: Message):
     await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")"""
 
 
-@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
+"""@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
 async def add_forcesub(client: Client, message: Message):
     check=0
     channel_ids = await get_all_channels()
@@ -137,7 +137,7 @@ async def delete_all_forcesub(client: Client, message: Message):
             await del_channel(id)
         await message.reply("<b><blockquote>⛔️ All Available Channel ID are Deleted...</blockquote></b>")
     else:
-        await message.reply("<b><blockquote>⁉️ No Channel ID Available to Delete !</blockquote></b>")
+        await message.reply("<b><blockquote>⁉️ No Channel ID Available to Delete !</blockquote></b>")"""
     
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
@@ -283,15 +283,15 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    channels = await get_all_channels()
+"""channels = await get_all_channels()
     FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
 
     if len(channels)==2:
         FORCE_SUB_CHANNEL = channels[0]
-        FORCE_SUB_CHANNEL1 = channels[1]
+        FORCE_SUB_CHANNEL1 = channels[1]"""
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
-        try:
+"""try:
             link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
             cname = (await client.get_chat(FORCE_SUB_CHANNEL)).title
 
@@ -304,12 +304,12 @@ async def check_force_sub(client: Client, message: Message):
                 
             if not link2:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link"""
 
-            ch_n1 = cname
-            ch_lnk1 = link
-            ch_n2 = cname2
-            ch_lnk2 = clink2
+            ch_n1 = client.cname1
+            ch_lnk1 = client.cilink1
+            ch_n2 = client.cname2
+            ch_lnk2 = client.cilink2
                 
         except:
             print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
@@ -422,29 +422,29 @@ async def not_joined(client: Client, message: Message):
         FORCE_SUB_CHANNEL1 = channels[1]
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
-        try:
-            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+        #try:
+            #link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            #link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
                 
-            if not link:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
-                link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+            #if not link:
+                #await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                #link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
                 
-            if not link2:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+            #if not link2:
+                #await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
+                #link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
     
-            client.clink = link
-            client.clink2 = link2
+            #client.clink = link
+            #client.clink2 = link2
             
-        except:
-            print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
-            return
+        #except:
+            #print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+            #return
             
         buttons = [
             [
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.clink),
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.clink2)    
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.cilink1),
+                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.cilink2)    
             ]
         ]
         try:
