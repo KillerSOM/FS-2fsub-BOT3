@@ -15,7 +15,7 @@ from database.database import get_all_channels
 
 
 async def is_subscribed(filter, client, update):
-    FORCE_SUB_CHANNEL, FORCE_SUBCHANNEL1 = await get_all_channels()
+    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = await get_all_channels()
     
     if not (FORCE_SUB_CHANNEL or FORCE_SUB_CHANNEL1):
         return True
