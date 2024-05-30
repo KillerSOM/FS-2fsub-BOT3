@@ -281,16 +281,6 @@ async def help(client: Client, message: Message):
         return
 
 
-@Bot.on_message(filters.command('fsub') & filters.private)
-async def check_force_sub(client: Client, message: Message):
-"""channels = await get_all_channels()
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
-
-    if len(channels)==2:
-        FORCE_SUB_CHANNEL = channels[0]
-        FORCE_SUB_CHANNEL1 = channels[1]"""
-
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
 """try:
             link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
             cname = (await client.get_chat(FORCE_SUB_CHANNEL)).title
@@ -304,16 +294,31 @@ async def check_force_sub(client: Client, message: Message):
                 
             if not link2:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link"""
+                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+"""
+
+"""channels = await get_all_channels()
+    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+
+    if len(channels)==2:
+        FORCE_SUB_CHANNEL = channels[0]
+        FORCE_SUB_CHANNEL1 = channels[1]
+"""
+
+
+@Bot.on_message(filters.command('fsub') & filters.private)
+async def check_force_sub(client: Client, message: Message):
+
+    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
 
             ch_n1 = client.cname1
             ch_lnk1 = client.cilink1
             ch_n2 = client.cname2
             ch_lnk2 = client.cilink2
                 
-        except:
-            print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
-            return    
+        #except:
+            #print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+            #return    
     else:
         ch_n1 = "No Force-Sub Channel(1) ⛔️"
         ch_lnk1 = f"https://t.me/{client.username}" 
