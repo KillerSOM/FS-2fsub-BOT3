@@ -15,7 +15,7 @@ from helper_func import subscribed, encode, decode, get_messages, get_readable_t
 from database.database import add_user, del_user, full_userbase, present_user, add_channel, del_channel, get_all_channels
 import subprocess
 import sys
-from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+from force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 @Bot.on_message(filters.command('restart') & filters.private & filters.user(OWNER_ID))
