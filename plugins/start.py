@@ -36,108 +36,6 @@ FORCE = "https://graph.org//file/ca724c4356b422f3cb6e6.jpg"
 SCP = "https://graph.org//file/97dba257afa602043b070.jpg"
 HELP = "https://graph.org//file/10f310dd6a7cb56ad7c0b.jpg"
 
-"""@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
-async def add_forcesub(client: Client, message: Message):
-    check, loop=0, 0
-    channels = await get_all_channels()
-        
-    fsubs = message.text.removeprefix('/add_fsub').strip().split()
-    if len(fsubs)==2 or len(fsubs)==1:
-        if len(channels)==1:
-            loop=1
-        for id in fsubs:
-            if id[0]=='-' and len(id)==14 and id.removeprefix('-').isdigit():
-                if len(channels)==2 and len(fsubs)==2:
-                    await del_channel(channels[0])
-                    await del_channel(channels[1])
-                if loop==1:
-                    await add_channel(int(id))
-                    break
-                else:
-                   await add_channel(int(id))
-            elif len(id)==1 and id[0]=='0':
-                if loop==1:
-                    await add_channel(0)
-                    break
-                else:
-                    await add_channel(0)
-            else:
-                check=None
-                break
-    else:
-        check=None
-    if check==0:
-        await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<blockquote><code>{" ".join(fsubs)}</code></blockquote>')
-        #await restart_bot()
-    else:
-        await message.reply("<b>INVALID USE OF COMMAND:</b>\n"
-                            f"<blockquote><b>➪ Check if the command is empty OR the added ID should be correct (13 digit numbers including '-' or 0 only)</b></blockquote>\n{fsubs}")
-
-
-@Bot.on_message(filters.command('fsub_chnls') & filters.private & filters.user(OWNER_ID))
-async def get_forcesub(client: Client, message: Message):
-    fsub=''
-    channels = await get_all_channels()
-    if len(channels)==2:
-        fsub= f'<blockquote><code>{channels[0]}</code></blockquote>\n<blockquote><code>{channels[1]}</code></blockquote>'
-    elif len(channels)==1:
-        fsub = f'<blockquote><code>{channels[0]}</code></blockquote>'
-    else:
-        fsub = '<blockquote>DEFAULT</blockquote>'
-        
-    await message.reply(f"<b><u>FORCE-SUB CHANNEL IDs:</b>\n{fsub}")"""
-
-
-"""@Bot.on_message(filters.command('add_fsub') & filters.private & filters.user(OWNER_ID))
-async def add_forcesub(client: Client, message: Message):
-    check=0
-    channel_ids = await get_all_channels()
-    fsubs = message.text.split()[1:]
-    
-    #if not (len(fsubs)==1 and fsubs[0].isdigit() and fsubs[0]=='0'):
-    if len(fsubs) > 2 or len(fsubs) < 2:
-        await message.reply("<b>You need to add 2 Channel ID at a time</b>")
-        return
-    
-    for id in fsubs:
-        if id.startswith('-') and id[1:].isdigit() and len(id)==14:
-            check+=1
-        #elif id == '0':
-            #check+=2
-        else:
-            await message.reply("<b>Invalid channel ID format.</b>")
-            return
-    
-    if check==2:
-        if len(channel_ids)>0:
-            for id in channel_ids:
-                await del_channel(id)
-        for id in fsubs:
-            await add_channel(int(id))
-    
-    await message.reply(f'<b>Force-Sub Channel Added ✅</b>\n<code><blockquote>{" ".join(fsubs)}</blockquote></code>')
-
-@Bot.on_message(filters.command('fsub_chnl_ids') & filters.private & filters.user(OWNER_ID))
-async def get_forcesub(client: Client, message: Message):
-    channels = await get_all_channels()
-    
-    if channels:
-        channel_list = "\n".join([f"<code>{channel}</code>" for channel in channels])
-    else:
-        channel_list = "❌ No force-sub channels found."
-    
-    await message.reply(f"<b><u>📢 FORCE-SUB CHANNEL IDs:</u></b>\n\n<blockquote>{channel_list}</blockquote>")
-
-@Bot.on_message(filters.command('delall_fsub') & filters.private & filters.user(OWNER_ID))
-async def delete_all_forcesub(client: Client, message: Message):
-    channels = await get_all_channels()
-    if channels:
-        for id in channels:
-            await del_channel(id)
-        await message.reply("<b><blockquote>⛔️ All Available Channel ID are Deleted...</blockquote></b>")
-    else:
-        await message.reply("<b><blockquote>⁉️ No Channel ID Available to Delete !</blockquote></b>")"""
-    
 
 @Bot.on_message(filters.command('start') & (filters.private | filters.group | filters.channel) & subscribed)
 async def start_command(client: Client, message: Message):
@@ -561,3 +459,19 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         msg = await message.reply(REPLY_ERROR)
         await asyncio.sleep(8)
         await msg.delete()
+
+
+
+@Bot.on_message(filters.document & filters.chat_type.channel & filters.user(ADMIN_IDS))
+async def handle_document(client: Client, message: Message):
+    file_name = message.document.file_name
+    new_caption = f'Document received: {file_name}'
+    await client.edit_message_caption(chat_id=message.chat.id, message_id=message.message_id, caption=new_caption)
+
+@app.on_message(filters.video & filters.chat_type.channel & filters.user(ADMIN_IDS))
+async def handle_video(client: Client, message: Message):
+    video = message.video
+    file_name = video.file_name if video.file_name else 'Unnamed video'
+    new_caption = f'Video received: {file_name}'
+    await client.edit_message_caption(chat_id=message.chat.id, message_id=message.message_id, caption=new_caption)
+
