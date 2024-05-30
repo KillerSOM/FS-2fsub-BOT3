@@ -2,8 +2,6 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from bot import Bot
-
 from config import OWNER_ID
 from database.database import add_channel, del_channel, get_all_channels
 
