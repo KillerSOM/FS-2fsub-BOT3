@@ -11,6 +11,7 @@ import sys
 from datetime import datetime
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
+from force_sub import add_forcesub, delete_all_forcesub, get_forcesub
 
 class Bot(Client):
     def __init__(self, force_sub_channel=None, force_sub_channel1=None):
@@ -97,9 +98,6 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
-
-    def add_handler(self, handler):
-        self.add_event_handler(handler)
 
     def run(self):
         self.start()
