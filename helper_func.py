@@ -14,13 +14,7 @@ from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 async def is_subscribed(filter, client, update):
-"""channels = await get_all_channels()
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
-    #fsub1, fsub2 = None, None
-    if len(channels)==2:
-        FORCE_SUB_CHANNEL = channels[0]
-        FORCE_SUB_CHANNEL1 = channels[1]"""
-        
+    
     if not (FORCE_SUB_CHANNEL or FORCE_SUB_CHANNEL1):
         return True
 
