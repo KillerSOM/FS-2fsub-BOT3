@@ -432,7 +432,7 @@ async def not_joined(client: Client, message: Message):
                 
             if not link2:
                 await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
+                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
     
             client.clink = link
             client.clink2 = link2
