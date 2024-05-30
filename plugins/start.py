@@ -307,7 +307,11 @@ async def help(client: Client, message: Message):
 
 @Bot.on_message(filters.command('fsub') & filters.private)
 async def check_force_sub(client: Client, message: Message):
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = await get_all_channels()
+    temp = await message.reply("<blockquote><b><i>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</i><b></blockquote>")
+    channels_id = await get_all_channels()
+    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
+    if channels_id:
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = Channels_id
     
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
@@ -347,7 +351,7 @@ async def check_force_sub(client: Client, message: Message):
          ],
                 [ InlineKeyboardButton(ch_n2, url=ch_lnk2)]#, InlineKeyboardButton("⛔️ Close", callback_data = "close")]
     ])
-         
+    await temp.delete()     
     await message.reply_video(
             video = GIF,
             caption = "<b>CURRENT FORCE-SUB CHANNELS :\n\n<blockquote>Click below buttons to Join</blockquote></b>",
@@ -433,8 +437,11 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = await get_all_channels()
+    temp = await message.reply("<blockquote><b><i>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</i><b></blockquote>")
+    channels_id = await get_all_channels()
+    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
+    if channels_id:
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = Channels_id
 
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
@@ -474,7 +481,7 @@ async def not_joined(client: Client, message: Message):
         except IndexError:
             pass
     
-        await message.reply_text(
+        await temp.edit_text(
             #photo = FORCE,
             text = FORCE_MSG.format(
                     first = message.from_user.first_name,
