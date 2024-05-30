@@ -45,7 +45,7 @@ async def add_forcesub(client: Client, message: Message):
     if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
         try:
             link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            cname = (await client.get_chat(FORCE_SUB_CHANNEL)).title
+            cname1 = (await client.get_chat(FORCE_SUB_CHANNEL)).title
 
             link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
             cname2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).title
@@ -60,7 +60,7 @@ async def add_forcesub(client: Client, message: Message):
 
             client.cilink1 = link
             client.cilink2 = link2
-            client.cname = cname
+            client.cname1 = cname1
             client.cname2 = cname2
                 
         except:
