@@ -9,12 +9,13 @@ from config import FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, ADMINS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 #from bot import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
-from plugins.force_sub import update_fsub, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+from database.database import get_all_channels 
+#from plugins.force_sub import update_fsub, FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 
 async def is_subscribed(filter, client, update):
-    await update_fsub(1)
+    FORCE_SUB_CHANNEL, FORCE_SUBCHANNEL1 = await get_all_channels()
     
     if not (FORCE_SUB_CHANNEL or FORCE_SUB_CHANNEL1):
         return True
