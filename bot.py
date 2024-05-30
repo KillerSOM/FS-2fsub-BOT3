@@ -13,19 +13,6 @@ from datetime import datetime
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
 from database.database import get_all_channels
 
-#FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = 0, 0
-
-"""async def fetch_fsub():
-    channels = await get_all_channels()
-    fsub1, fsub2=None, None
-    if len(channels)==2:
-        fsub1 = channels[0]
-        fsub2 = channels[1]
-    if len(channels)==1 and channels[0]==0:
-        fsub1 = channels[0]
-        fsub2 = channels[0]
-    return fsub1, fsub2"""
-
 
 class Bot(Client):
     def __init__(self):
@@ -61,14 +48,13 @@ class Bot(Client):
         if FORCE_SUB_CHANNEL:
             try:
                 link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                cname = (await self.get_chat(FORCE_SUB_CHANNEL)).title
                 
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
                     link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
     
                 self.invitelink = link
-                self.name = cname
+
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning("Bot can't Export Invite link from Force Sub Channel!")
@@ -79,14 +65,13 @@ class Bot(Client):
         if FORCE_SUB_CHANNEL1:
             try:
                 link = (await self.get_chat(FORCE_SUB_CHANNEL1)).invite_link
-                cname = (await self.get_chat(FORCE_SUB_CHANNEL1)).title
                 
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL1)
                     link = (await self.get_chat(FORCE_SUB_CHANNEL1)).invite_link
     
                 self.invitelink2 = link
-                self.name2 = cname
+                
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning("Bot can't Export Invite link from Force Sub Channel!")
