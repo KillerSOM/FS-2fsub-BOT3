@@ -11,7 +11,7 @@ import sys
 from datetime import datetime
 
 from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FFORCE_SUB_CHANNEL, FFORCE_SUB_CHANNEL1, CHANNEL_ID, PORT, LOG_CHNL, OWNER_ID
-from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
+#from database.force_sub import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1
 
 
 class Bot(Client):
@@ -35,7 +35,7 @@ class Bot(Client):
 
         
         #channels = await get_all_channels()
-        #FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
+        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1=0, 0
         #fsub1, fsub2 = None, None
 
         #if len(channels)==2:
