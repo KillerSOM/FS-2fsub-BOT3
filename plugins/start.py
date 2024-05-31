@@ -511,8 +511,8 @@ async def photo_handler(client: Client, message: Message):
 ‣ Status: Ongoing
 ‣ Ratings: 75
 ‣ Quality: Multi [Eng-Sub]
-‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>) ✅</b>"""
+‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>) ✅
 
-‣ Genres: Action, Adventure, Fantasy, Martial Arts
+‣ Genres: Action, Adventure, Fantasy, Martial Arts</b>"""
         await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/dc517252474f716de0a1d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
 
