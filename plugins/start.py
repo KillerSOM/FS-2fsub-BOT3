@@ -473,7 +473,7 @@ async def handle_document(client: Client, message: Message):
     
     if store[0].startswith('EP') and store[1].startswith('S') and store[2]=='BTTH' and store[4]=='ESUB' and store[5]=='🜲':
         if store[6]=='@btth480p.mkv':
-            if quality<='1080p':
+            if int(quality[:-1])<=1080:
                 subs='MyanimeLive'
             if quality.lower()=='hdrip' or quality.lower()=='4k':
                 subs='Falling Star Pavillion'
