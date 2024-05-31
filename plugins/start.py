@@ -500,8 +500,12 @@ async def handle_video(client: Client, message: Message):
 
 @Bot.on_message(filters.photo & filters.chat(-1002111861089))
 async def photo_handler(client: Client, message: Message):
-    photo = message.photo
     photo_caption = message.caption
-    link = f"https://t.me/c/2111861089/{message.id}"
-    await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/56410585b65009ad4896e.jpg", caption=photo_caption.html, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("---See Post---",url=link)]]))
+    store = photo_caption.split()
+    if store[0] == '🔴' and store[1] == 'BTTH' and store[4] == '➪' and store[5] == 'EPISODE':
+        link = f"https://t.me/c/2111861089/{message.id}"
+        episode = int(store[6])
+        new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
+        await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download EP{episode}",url=link)]]))
+        await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/56410585b65009ad4896e.jpg", caption=photo_caption.html, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("--- See Post ---",url=link)]]))
 
