@@ -511,7 +511,12 @@ async def photo_handler(client: Client, message: Message):
         new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
         await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
-        await client.pin_chat_message(chat_id=message.chat.id, message_id=message.id, disable_notification=True)
+        await client.pin_chat_message(chat_id=message.chat.id, message_id=message.id, disable_notification=False)
+        
+        async for recent_message in client.get_chat_history(chat_id=message.chat.id, limit=10):
+            if recent_message.service and recent_message.pinned_message:
+                await recent_message.delete()
+                break
         chidori_format = """<b>📓 Battle Through The Heavens
         
 ‣ Status: Ongoing
