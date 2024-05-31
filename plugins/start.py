@@ -466,12 +466,13 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
 async def handle_document(client: Client, message: Message):
     file_name = message.document.file_name
     store = file_name.split()
-    episode = store[0].removeprefix('EP')
-    quality = store[3].removeprefix('(').removesuffix(')')
-    season = store[1][1:]
-    subs, c_4k, new_caption, hdint='', '', '', 1081
     
     if store[0].startswith('EP') and store[1].startswith('S') and store[2]=='BTTH' and store[4]=='ESUB' and store[5]=='🜲':
+        episode = store[0].removeprefix('EP')
+        quality = store[3].removeprefix('(').removesuffix(')')
+        season = store[1][1:]
+        subs, c_4k, new_caption, hdint='', '', '', 1081
+        link = f"https://t.me/c/2111861089/{message.id}"
         if store[6]=='@btth480p.mkv':
             if quality.lower()=='hdrip' or quality.lower()=='4k':
                 subs='Falling Star Pavillion'
@@ -482,9 +483,9 @@ async def handle_document(client: Client, message: Message):
         else:
             subs=store[6][1:]
         if c_4k:
-            new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
+            new_caption = f'<b>Episode {episode} | Season {season}\n<a href={link}>Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
         else:
-            new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
+            new_caption = f'<b>Episode {episode} | Season {season}\n<a href={link}>Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
         await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
 
 @Bot.on_message(filters.video & filters.chat(-1002111861089))
