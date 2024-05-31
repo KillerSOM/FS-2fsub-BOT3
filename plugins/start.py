@@ -503,5 +503,5 @@ async def photo_handler(client: Client, message: Message):
     photo = message.photo
     photo_caption = message.caption
     link = f"https://t.me/c/2111861089/{message.id}"
-    await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/56410585b65009ad4896e.jpg", caption=photo_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("---See Post---",url=link)]]))
+    await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/56410585b65009ad4896e.jpg", caption=photo_caption.html, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("---See Post---",url=link)]]))
 
