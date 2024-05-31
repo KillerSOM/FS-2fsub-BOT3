@@ -478,6 +478,7 @@ async def handle_document(client: Client, message: Message):
                 subs='Falling Star Pavillion'
                 if quality.lower()=='4k':
                     c_4k="<b>4K(2160p) Compressed File</b>\n\n🔺ᴜsᴇ ᴍx/ᴠʟᴄ ᴘʟᴀʏᴇʀ ғᴏʀ\n🔻ᴇɴɢʟɪsʜ sᴜʙᴛɪᴛʟᴇs."
+                    await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
             elif int(quality[:-1]) <= 1080:
                 subs='MyanimeLive'
         else:
@@ -494,6 +495,8 @@ async def handle_video(client: Client, message: Message):
     file_name = video.file_name if video.file_name else 'Unnamed video'
     store = file_name.split()
     if len(store)==10 and store[9]=='@BTTH480P.mp4':
+        if store[7]=='720P':
+            await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ')   
         new_caption = f"<b>{video.file_name.removesuffix('.mp4')}</b>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
     #new_caption = f'Video received: {file_name}'
@@ -507,6 +510,7 @@ async def photo_handler(client: Client, message: Message):
         episode = int(store[6])
         new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
+        await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
         chidori_format = """<b>📓 Battle Through The Heavens
         
 ‣ Status: Ongoing
