@@ -481,11 +481,11 @@ async def handle_document(client: Client, message: Message):
                 subs='MyanimeLive'
         else:
             subs=store[6][1:]
-    if c_4k:
-        new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
-    else:
-        new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
-    await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
+        if c_4k:
+            new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
+        else:
+            new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
+        await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
 
 @Bot.on_message(filters.video & filters.chat(-1002111861089))
 async def handle_video(client: Client, message: Message):
