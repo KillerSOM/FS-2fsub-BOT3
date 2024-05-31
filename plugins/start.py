@@ -511,12 +511,13 @@ async def photo_handler(client: Client, message: Message):
         new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
         await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
+        await client.pin_chat_message(chat_id=message.chat.id, message_id=message.id, disable_notification=True)
         chidori_format = """<b>📓 Battle Through The Heavens
         
 ‣ Status: Ongoing
 ‣ Ratings: 75
 ‣ Quality: Multi [Eng-Sub]
-‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>) ✅
+‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>)
 
 ‣ Genres: Action, Adventure, Fantasy, Martial Arts</b>"""
         await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/dc517252474f716de0a1d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
