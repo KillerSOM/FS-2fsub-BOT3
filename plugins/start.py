@@ -501,7 +501,7 @@ async def handle_video(client: Client, message: Message):
 @Bot.on_message(filters.photo & filters.chat(-1002111861089))
 async def photo_handler(client: Client, message: Message):
     photo = message.photo
-    photo_caption = photo.caption if photo.caption else 'Testing...'
+    photo_caption = message.caption if message.caption else 'Testing...'
     link = f"https://t.me/c/2111861089/{message.id}"
     client.send_photo(chat_id=-1002032531721, photo=photo, caption=photo_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("---See Post---",url=link)]]))
 
