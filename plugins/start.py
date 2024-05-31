@@ -465,13 +465,35 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
 @Bot.on_message(filters.document & filters.chat(-1002111861089))
 async def handle_document(client: Client, message: Message):
     file_name = message.document.file_name
-    new_caption = f'Document received: {file_name}'
+    store = file_name.split()
+    episode = store[0].removeprefix('EP')
+    quality = store[3].removeprefix('(').removesuffix(')')
+    season = store[1][1:]
+    subs, c_4k, new_caption='', '', ''
+    
+    if store[0].startswith('EP') and store[1].startswith('S') and store[2]=='BTTH' and store[4]=='ESUB' and store[5]=='🜲':
+        if store.[6]=='@btth480p.mkv':
+            if quality<='1080p':
+                subs='MyanimeLive'
+            if quality.lower()=='hdrip' or quality.lower()=='4k':
+                subs='Falling Star Pavillion'
+                if quality.lower()=='4k':
+                    c_4k="<b>4K(2160p) Compressed File</b>\n\n🔺ᴜsᴇ ᴍx/ᴠʟᴄ ᴘʟᴀʏᴇʀ ғᴏʀ\n🔻ᴇɴɢʟɪsʜ sᴜʙᴛɪᴛʟᴇs."
+        else:
+            subs=store[6][1:]
+    if c_4k:
+        new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
+    else:
+        new_caption = f'<b>Episode {episode} | Season {season}\n<a href="https://t.me/btth480p">Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
     await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
 
 @Bot.on_message(filters.video & filters.chat(-1002111861089))
 async def handle_video(client: Client, message: Message):
     video = message.video
     file_name = video.file_name if video.file_name else 'Unnamed video'
-    new_caption = f'Video received: {file_name}'
+    store = file_name.split()
+    if len(store)==10 and store[9]=='@BTTH480P.mp4':
+        new_caption = f"<b>{video.file_name.removesuffix('.mp4')}</b>"
+    #new_caption = f'Video received: {file_name}'
     await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
 
