@@ -507,7 +507,8 @@ async def photo_handler(client: Client, message: Message):
         episode = int(store[6])
         new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
-        chidori_format = """<b><blockquote>📓 Battle Through The Heavens</blockquote> 
+        chidori_format = """<b>📓 Battle Through The Heavens
+        
 ‣ Status: Ongoing
 ‣ Ratings: 75
 ‣ Quality: Multi [Eng-Sub]
