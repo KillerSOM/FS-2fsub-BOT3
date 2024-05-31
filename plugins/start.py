@@ -499,7 +499,7 @@ async def handle_video(client: Client, message: Message):
     #new_caption = f'Video received: {file_name}'
 
 @Bot.on_message(filters.photo & filters.chat(-1002111861089))
-aync def photo_handler(client: Client, message: Message):
+async def photo_handler(client: Client, message: Message):
     photo = message.photo
     photo_caption = photo.caption if photo.caption else 'Testing...'
     link = f"https://t.me/c/2111861089/{message.id}"
