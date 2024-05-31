@@ -469,16 +469,16 @@ async def handle_document(client: Client, message: Message):
     episode = store[0].removeprefix('EP')
     quality = store[3].removeprefix('(').removesuffix(')')
     season = store[1][1:]
-    subs, c_4k, new_caption='', '', ''
+    subs, c_4k, new_caption, hdint='', '', '', 1081
     
     if store[0].startswith('EP') and store[1].startswith('S') and store[2]=='BTTH' and store[4]=='ESUB' and store[5]=='🜲':
         if store[6]=='@btth480p.mkv':
-            if (int(quality[:-1]) if not quality.isalpha() else quality)<=1080:
-                subs='MyanimeLive'
             if quality.lower()=='hdrip' or quality.lower()=='4k':
                 subs='Falling Star Pavillion'
                 if quality.lower()=='4k':
                     c_4k="<b>4K(2160p) Compressed File</b>\n\n🔺ᴜsᴇ ᴍx/ᴠʟᴄ ᴘʟᴀʏᴇʀ ғᴏʀ\n🔻ᴇɴɢʟɪsʜ sᴜʙᴛɪᴛʟᴇs."
+            elif int(quality[:-1]) <= 1080:
+                subs='MyanimeLive'
         else:
             subs=store[6][1:]
     if c_4k:
