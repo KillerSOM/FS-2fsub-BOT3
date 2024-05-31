@@ -494,6 +494,7 @@ async def handle_video(client: Client, message: Message):
     store = file_name.split()
     if len(store)==10 and store[9]=='@BTTH480P.mp4':
         new_caption = f"<b>{video.file_name.removesuffix('.mp4')}</b>"
+        await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
     #new_caption = f'Video received: {file_name}'
-    await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
+    
 
