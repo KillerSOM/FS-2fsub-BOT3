@@ -494,10 +494,10 @@ async def handle_video(client: Client, message: Message):
     video = message.video
     file_name = video.file_name if video.file_name else 'Unnamed video'
     store = file_name.split()
-    if len(store)==10 and store[9]=='@BTTH480P.mp4':
+    if len(store)==10 and (store[9]=='@BTTH480P.mp4' or store[9]=='@BTTH480P.mkv'):
         if store[7]=='720P':
             await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ')   
-        new_caption = f"<b>{video.file_name.removesuffix('.mp4')}</b>"
+        new_caption = f"<b>{video.file_name[:-4]}</b>"
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
     #new_caption = f'Video received: {file_name}'
 
