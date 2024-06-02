@@ -530,7 +530,7 @@ async def photo_handler(client: Client, message: Message):
 @Bot.on_message(filters.sticker & filters.chat(group))
 def delete_channel_stickers(client, message):
     if message.forward_from_chat and message.forward_from_chat.id == main:
-        if sticker.file_id == ("CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ" or "CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ"):
+        if message.sticker.file_id == ("CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ" or "CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ"):
             client.delete_messages(chat_id=message.chat.id, message_ids=message.message_id)
         # Optionally, send a notification to the group
         #client.send_message(chat_id=message.chat.id, text="Stickers from the linked channel are not allowed.")
