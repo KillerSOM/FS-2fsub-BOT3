@@ -459,10 +459,13 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         msg = await message.reply(REPLY_ERROR)
         await asyncio.sleep(8)
         await msg.delete()
+        
 
+main = -1002111861089
+second = -1002032531721
+group = -1002161230741
 
-
-@Bot.on_message(filters.document & filters.chat(-1002111861089))
+@Bot.on_message(filters.document & filters.chat(main))
 async def handle_document(client: Client, message: Message):
     file_name = message.document.file_name
     store = file_name.split()
@@ -489,7 +492,7 @@ async def handle_document(client: Client, message: Message):
             new_caption = f'<b>Episode {episode} | Season {season}\n<a href={link}>Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
         await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
 
-@Bot.on_message(filters.video & filters.chat(-1002111861089))
+@Bot.on_message(filters.video & filters.chat(main))
 async def handle_video(client: Client, message: Message):
     video = message.video
     file_name = video.file_name if video.file_name else 'Unnamed video'
@@ -501,7 +504,7 @@ async def handle_video(client: Client, message: Message):
         await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
     #new_caption = f'Video received: {file_name}'
 
-@Bot.on_message(filters.photo & filters.chat(-1002111861089))
+@Bot.on_message(filters.photo & filters.chat(main))
 async def photo_handler(client: Client, message: Message):
     photo_caption = message.caption
     store = photo_caption.split()
@@ -521,5 +524,15 @@ async def photo_handler(client: Client, message: Message):
 ‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>)
 
 ‣ Genres: Action, Adventure, Fantasy, Martial Arts</b>"""
-        await client.send_photo(chat_id=-1002032531721, photo="https://telegra.ph/file/dc517252474f716de0a1d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
+        await client.send_photo(chat_id=send, photo="https://telegra.ph/file/dc517252474f716de0a1d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
+
+
+@Bot.on_message(filters.sticker & filters.chat(group))
+def delete_channel_stickers(client, message):
+    if message.forward_from_chat and message.forward_from_chat.id == main:
+        if message.file_id == ("CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ" or "CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ"):
+            client.delete_messages(chat_id=message.chat.id, message_ids=message.message_id)
+        # Optionally, send a notification to the group
+        #client.send_message(chat_id=message.chat.id, text="Stickers from the linked channel are not allowed.")
+
 
