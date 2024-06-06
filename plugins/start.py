@@ -522,7 +522,7 @@ async def photo_handler(client: Client, message: Message):
 ‣ Quality:  Multi [English Sub]</blockquote>
 ──────────────────────
 @UCHIHA_X_CLAN</b>"""
-        await client.send_photo(chat_id=CHIDORI, photo="https://telegra.ph/file/1a2d93181bdb692229b9d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
+        await client.send_photo(chat_id=CHIDORI, photo="https://telegra.ph/file/1a2d93181bdb692229b9d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Download",url=link)]]))
 
 
 
