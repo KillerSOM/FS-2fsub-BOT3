@@ -461,27 +461,26 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
         
 
-main = -1002111861089
-second = -1002032531721
-group = -1002161230741
+BTTH = -1002111861089
+CHIDORI = -1002032531721
 
-@Bot.on_message(filters.document & filters.chat(main))
+@Bot.on_message(filters.document & filters.chat(BTTH))
 async def handle_document(client: Client, message: Message):
     file_name = message.document.file_name
     store = file_name.split()
-    
+
     if store[0].startswith('EP') and store[1].startswith('S') and store[2]=='BTTH' and store[4]=='ESUB' and store[5]=='🜲':
         episode = store[0].removeprefix('EP')
         quality = store[3].removeprefix('(').removesuffix(')')
         season = store[1][1:]
         subs, c_4k, new_caption, hdint='', '', '', 1081
-        link = f"https://t.me/c/2111861089/{message.id}"
+        link = f"https://t.me/btth480p/{message.id}"
         if store[6]=='@btth480p.mkv':
             if quality.lower()=='hdrip' or quality.lower()=='4k':
                 subs='Falling Star Pavillion'
                 if quality.lower()=='4k':
                     c_4k="<b>4K(2160p) Compressed File</b>\n\n🔺ᴜsᴇ ᴍx/ᴠʟᴄ ᴘʟᴀʏᴇʀ ғᴏʀ\n🔻ᴇɴɢʟɪsʜ sᴜʙᴛɪᴛʟᴇs."
-                    await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
+                    await client.send_sticker(chat_id=BTTH, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
             elif int(quality[:-1]) <= 1080:
                 subs='MyanimeLive'
         else:
@@ -490,50 +489,62 @@ async def handle_document(client: Client, message: Message):
             new_caption = f'<b>Episode {episode} | Season {season}\n<a href={link}>Battle Through The Heavens</a></b>\n\n{c_4k}\n\n<b><blockquote>BY: {subs}</blockquote></b>'
         else:
             new_caption = f'<b>Episode {episode} | Season {season}\n<a href={link}>Battle Through The Heavens</a>\n\n<blockquote>BY: {subs}</blockquote></b>'
-        await client.edit_message_caption(chat_id=message.chat.id, message_id = message.id, caption=new_caption)
+        await client.edit_message_caption(chat_id=BTTH, message_id = message.id, caption=new_caption)
 
-@Bot.on_message(filters.video & filters.chat(main))
+@Bot.on_message(filters.video & filters.chat(BTTH))
 async def handle_video(client: Client, message: Message):
     video = message.video
     file_name = video.file_name if video.file_name else 'Unnamed video'
     store = file_name.split()
     if len(store)==10 and (store[9]=='@BTTH480P.mp4' or store[9]=='@BTTH480P.mkv'):
         if store[7]=='720P':
-            await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ')   
+            await client.send_sticker(chat_id=BTTH, sticker = 'CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ')   
         new_caption = f"<b>{video.file_name[:-4]}</b>"
-        await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption)
+        await client.edit_message_caption(chat_id=BTTH, message_id=message.id, caption=new_caption)
     #new_caption = f'Video received: {file_name}'
 
-@Bot.on_message(filters.photo & filters.chat(main))
+@Bot.on_message(filters.photo & filters.chat(BTTH))
 async def photo_handler(client: Client, message: Message):
     photo_caption = message.caption
     store = photo_caption.split()
     if store[0] == '🔴' and store[1] == 'BTTH' and store[4] == '➪' and store[5] == 'EPISODE':
-        link = f"https://t.me/c/2111861089/{message.id}"
+        link = f"https://t.me/btth480p/{message.id}"
         episode = int(store[6])
         new_caption = f"<b>🔴 BTTH Season 05 ➪ EPISODE {episode+1}\n\n‣ Eng-Sub | Multiple Quality\n<blockquote>Dᴏᴡɴʟᴏᴀᴅ Sᴏᴜʀᴄᴇ :</b> Mʏᴀɴɪᴍᴇʟɪᴠᴇ, Fᴀʟʟɪɴɢ sᴛᴀʀ ᴘᴀᴠɪʟɪᴏɴ</blockquote>"
-        await client.edit_message_caption(chat_id=message.chat.id, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
-        await client.send_sticker(chat_id=message.chat.id, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
-        await client.pin_chat_message(chat_id=message.chat.id, message_id=message.id, disable_notification=False)
-    
-        chidori_format = """<b>📓 Battle Through The Heavens
-        
-‣ Status: Ongoing
-‣ Ratings: 75
-‣ Quality: Multi [Eng-Sub]
-‣ Index Anime Channel: (<a href="https://t.me/INDEXCHIDORI">Click Here</a>)
+        await client.edit_message_caption(chat_id=BTTH, message_id=message.id, caption=new_caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Download Episode {episode+1}",url=link)]]))
+        await client.send_sticker(chat_id=BTTH, sticker = 'CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ')
+        await client.pin_chat_message(chat_id=BTTH, message_id=message.id, disable_notification=False)
 
-‣ Genres: Action, Adventure, Fantasy, Martial Arts</b>"""
-        await client.send_photo(chat_id=send, photo="https://telegra.ph/file/dc517252474f716de0a1d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
+        chidori_format = f"""<b>Battle Through The Heavens
+──────────────────────
+<blockquote>‣ Season: 05
+‣ Episode: {episode+1}
+‣ Quality:  Multi [English Sub]</blockquote>
+──────────────────────
+@UCHIHA_X_CLAN</b>"""
+        await client.send_photo(chat_id=CHIDORI, photo="https://telegra.ph/file/1a2d93181bdb692229b9d.jpg", caption=chidori_format, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("◻️ Download ◻️",url=link)]]))
 
 
-@Bot.on_message(filters.sticker & filters.chat(group))
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""@Bot.on_message(filters.sticker & filters.chat(group))
 async def delete_channel_stickers(client, message):
     if message.forward_from_chat and message.forward_from_chat.id == main:
         Sticker_ids = ["CAACAgUAAxkBAAJt_2ZZ4dg3zAPATULBZepvg0Iv-N9DAAKmDAACMl7ZV4Yg8mRtJQglHgQ", "CAACAgUAAxkBAAJV5GYSuV-NfATO-wvJtgXjoAzWoZSuAALgCwAC3T7ZV0GHY7Qivb0JHgQ"]
         if message.sticker.file_id in Sticker_ids:
             await client.delete_message(chat_id=message.chat.id, message_id=message.id)
         # Optionally, send a notification to the group
-        #client.send_message(chat_id=message.chat.id, text="Stickers from the linked channel are not allowed.")
+        #client.send_message(chat_id=message.chat.id, text="Stickers from the linked channel are not allowed.")"""
 
 
