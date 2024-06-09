@@ -461,7 +461,7 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
         
 
-BTTH = -1002111861089
+BTTH = -1002231690719 #-1002111861089
 CHIDORI = -1002032531721
 
 @Bot.on_message(filters.document & filters.chat(BTTH))
@@ -474,7 +474,7 @@ async def handle_document(client: Client, message: Message):
         quality = store[3].removeprefix('(').removesuffix(')')
         season = store[1][1:]
         subs, c_4k, new_caption, hdint='', '', '', 1081
-        link = f"https://t.me/btth480p/{message.id}"
+        link = f"https://t.me/BTTH_EngSub_AnimeXin/{message.id}"
         if store[6]=='@btth480p.mkv':
             if quality.lower()=='hdrip' or quality.lower()=='4k':
                 subs='Falling Star Pavillion'
