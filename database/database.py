@@ -45,8 +45,9 @@ async def add_channel(channel_id: int):
         return
 
 async def del_channel(channel_id: int):
-    channel_data.delete_one({'_id': channel_id})
-    return
+    if await channel_exist(channel_id):
+        channel_data.delete_one({'_id': channel_id})
+        return
 
 async def get_all_channels():
     channel_docs = channel_data.find()
