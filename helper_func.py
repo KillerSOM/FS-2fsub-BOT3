@@ -15,13 +15,14 @@ from database.database import get_all_channels
 
 
 async def is_subscribed(filter, client, update):
-    channels_id = await get_all_channels()
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
-    if channels_id:
-        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels_id
-    
-    if not (FORCE_SUB_CHANNEL or FORCE_SUB_CHANNEL1):
+    chnl_ids = await get_all_channels()
+    #FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
+    if not chnl_ids:
         return True
+        #FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels_id
+    
+    #if not (FORCE_SUB_CHANNEL or FORCE_SUB_CHANNEL1):
+        #return True
 
     user_id = update.from_user.id
 
@@ -30,7 +31,7 @@ async def is_subscribed(filter, client, update):
 
     member_status = ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER
 
-    for channel_id in [FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1]:
+    for channel_id in chnl_ids:
         if not channel_id:
             continue
 
