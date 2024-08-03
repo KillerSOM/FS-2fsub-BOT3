@@ -21,7 +21,7 @@ import sys
 async def restart_bot(client: Client, message: Message):
     print("Restarting bot...")
     msg = await client.send_message(OWNER_ID, text="<b><i><blockquote>⚠️ Bot Stopped, And going to Restart...</blockquote></i></b>")
-    await asyncio.sleep(2)  # Wait for 2 seconds before restarting
+    await asyncio.sleep(4)  # Wait for 2 seconds before restarting
     await msg.delete()
     args = [sys.executable, "main.py"]  # Adjust this if your start file is named differently
     os.execl(sys.executable, *args)
@@ -337,37 +337,23 @@ REPLY_ERROR = """<code>Use this command as a replay to any telegram message with
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
     temp = await message.reply("<blockquote><b>𝘊𝘰𝘭𝘭𝘦𝘤𝘵𝘪𝘯𝘨 𝘋𝘢𝘵𝘢 𝘧𝘳𝘰𝘮 𝘊𝘩𝘢𝘯𝘯𝘦𝘭𝘴 ...</b></blockquote>")
-    channels_id = await get_all_channels()
-    FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 =0, 0
-    if channels_id:
-        FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL1 = channels_id
-
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL1 :
-        try:
-            link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
-            link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
-                
-            if not link:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+    channels = await get_all_channels()
+    #channels_id = await get_all_channels()
+    buttons = []
+    if channels:
+        i = 0
+        for id in channels:
+            try:
+                i += 1
                 link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                if not link:
+                    await client.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                    link = (await client.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                buttons.append([InlineKeyboardButton(text = f"Join Channel No.{i}", url = link)])
+            except:
+                print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
+                return
                 
-            if not link2:
-                await client.export_chat_invite_link(FORCE_SUB_CHANNEL1)
-                link2 = (await client.get_chat(FORCE_SUB_CHANNEL1)).invite_link
-    
-            client.clink = link
-            client.clink2 = link2
-            
-        except:
-            print(f"Can't Export Channel Name and Link..., Please Check If the Bot is admin in the FORCE SUB CHANNELS:\nProvided Force sub Channels:- {FORCE_SUB_CHANNEL}, {FORCE_SUB_CHANNEL1}")
-            return
-            
-        buttons = [
-            [
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.clink),
-                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.clink2)    
-            ]
-        ]
         try:
            buttons.append(
                 [
