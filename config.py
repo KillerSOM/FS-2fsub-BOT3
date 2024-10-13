@@ -7,32 +7,32 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6750822148:AAHkqRrXxVRklrJKgasQAlp8-M4ZTygw5Io")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "22980101"))
 
 #Your API Hash from my.telegram.org
-API_HASH = os.environ.get("API_HASH", "f598fb9457146cc0e7c3b50e4e232d4f")
+API_HASH = os.environ.get("API_HASH", "")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002065786368"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 #log channel
-LOG_CHNL = int(os.environ.get("LOG_CHNL", "-1002021520934"))
+LOG_CHNL = int(os.environ.get("LOG_CHNL", ""))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "1536699044"))
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
 #Port
 PORT = os.environ.get("PORT", "8080")
 
 #Database
-DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://telegrambot22024:bot22024@cluster0.kspizla.mongodb.net/?retryWrites=true&w=majority")
+DB_URI = os.environ.get("DATABASE_URL", "")
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
 
 #force sub channel id, if you want enable force sub
-FFORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002132108969"))#-1002132108969
-FFORCE_SUB_CHANNEL1 = int(os.environ.get("FORCE_SUB_CHANNEL1", "-1001602389428"))#-1001602389428
+FFORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", ""))
+FFORCE_SUB_CHANNEL1 = int(os.environ.get("FORCE_SUB_CHANNEL1", ""))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
@@ -50,7 +50,7 @@ CHNL_MSG1 = os.environ.get("CHNL_MSG1", "<b>🍁 Hᴇᴇʏ ~\n\nWellcome to this
 
 try:
     ADMINS=[]
-    for x in (os.environ.get("ADMINS", "6376328008").split()):
+    for x in (os.environ.get("ADMINS", "").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
